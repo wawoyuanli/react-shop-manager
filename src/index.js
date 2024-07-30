@@ -7,6 +7,10 @@ import Login from './pages/Login'
 import Edit from './pages/admin/products/Edit.js'
 const router = [
   {
+    path: '/',
+    element: <Login />,
+  },
+  {
     path: '/login',
     element: <Login />,
   },
