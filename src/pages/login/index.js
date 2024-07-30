@@ -1,7 +1,7 @@
-import LoginForm from './components/LoginForm'
+import LoginForm from './components/LoginForm.js'
 import logo from '../../assets/images/logo.png'
 import loginLeft from '../../assets/images/login_left.png'
-import SwitchDark from '../../components/SwitchDark'
+import SwitchDark from '../../components/SwitchDark/index.js'
 import './index.css'
 const Login = () => {
   return (
@@ -14,7 +14,7 @@ const Login = () => {
         <div className="login-form">
           <div className="login-logo">
             <img className="login-icon" src={logo} alt="logo"></img>
-            <span className="logo-text">Hooks-admin</span>
+            <span className="logo-text">React Admin</span>
           </div>
           <LoginForm />
         </div>

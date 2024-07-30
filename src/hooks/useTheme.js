@@ -1,4 +1,2 @@
-const useTheme = ()=>{
-
-}
+const useTheme = () => {}
 export default useTheme
