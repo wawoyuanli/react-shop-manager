@@ -2,6 +2,7 @@ import LoginForm from './components/LoginForm.js'
 import logo from '../../assets/images/logo.png'
 import loginLeft from '../../assets/images/login_left.png'
 import SwitchDark from '../../components/SwitchDark/index.js'
+import React from 'react'
 import './index.css'
 const Login = () => {
   return (

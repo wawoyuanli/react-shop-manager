@@ -1,5 +1,6 @@
 import { Navigate, useRoutes } from 'react-router-dom'
 import Login from '../pages/login/index'
+import React from 'react'
 // 配置路由映射 （不同的路由对应渲染不同的页面组件）
 const rootRouter = [
   {

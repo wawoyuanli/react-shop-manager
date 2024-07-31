@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { UserOutlined, LockOutlined, CloseCircleOutlined } from '@ant-design/icons'
 import { connect } from 'react-redux'
 import { setToken } from '../../../redux/modules/global/action'
+import React from 'react'
 const LoginForm = props => {
   const { t } = useTranslation()
   const { setToken, setTabsList } = props

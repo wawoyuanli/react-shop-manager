@@ -9,7 +9,8 @@ import zhCN from 'antd/lib/locale/zh_CN'
 import enUS from 'antd/lib/locale/en_US'
 import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import useTheme from './hooks/useTheme'
+import useTheme from './hooks/useTheme.js'
+import React from 'react'
 // import 'moment/dist/locale/zh-cn'
 function App(props) {
   const { language, assemblySize, themeConfig, setLanguage } = props
