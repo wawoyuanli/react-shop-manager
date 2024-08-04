@@ -7,7 +7,7 @@ import reduxThunk from 'redux-thunk'
 import reduxPromise from 'redux-promise'
 import global from '@/redux/modules/global/reducer.js'
 // import menu from './modules/menu/reducer'
-// import tabs from './modules/tabs/reducer'
+import tabs from './modules/tabs/reducer'
 // import auth from './modules/auth/reducer'
 // import breadcrumb from './modules/breadcrumb/reducer'
 import aReducer from './modules/A/reducer.js'
@@ -15,6 +15,7 @@ import aReducer from './modules/A/reducer.js'
 const reducer = combineReducers({
   aReducer,
   global,
+  tabs
 })
 
 // redux 持久化配置

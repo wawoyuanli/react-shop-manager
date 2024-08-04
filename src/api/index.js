@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import NProgress from "@/config/nprogress";
 import axios from "axios";
 import {
@@ -109,4 +110,4 @@ class RequestHttp {
   }
 }
 
-export default RequestHttp(config);
+export default new RequestHttp(config);

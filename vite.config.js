@@ -2,7 +2,9 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 import { createHtmlPlugin } from 'vite-plugin-html'
+// import { wrapperEnv } from "./src/utils/getEnv.js";
 export default defineConfig(mode => {
+  // const viteEnv = wrapperEnv(env);
   return {
     plugins: [
       react({
@@ -35,9 +37,20 @@ export default defineConfig(mode => {
         transformMixedEsModules: true,
       },
     },
-    server: {
-      port: 8989,
-      host: 'localhost',
-    },
+  	server: {
+			host: "0.0.0.0", // 服务器主机名，如果允许外部访问，可设置为"0.0.0.0"
+			port: 8089,
+			open: true,
+			cors: true,
+			// https: false,
+			// 代理跨域（mock 不需要配置，这里只是个事列）
+			proxy: {
+				"/api": {
+					target: "https://mock.mengxuegu.com/mock/62abda3212c1416424630a45", // easymock
+					changeOrigin: true,
+					rewrite: path => path.replace(/^\/api/, "")
+				}
+			}
+		},
   }
 })

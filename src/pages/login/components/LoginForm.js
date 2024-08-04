@@ -8,10 +8,12 @@ import { UserOutlined, LockOutlined, CloseCircleOutlined } from '@ant-design/ico
 import { connect } from 'react-redux'
 import { loginApi } from "@/api/modules/login.js";
 import { setToken } from '@/redux/modules/global/action.js'
+import { setTabsList } from "@/redux/modules/tabs/action";
 import React from 'react'
 const LoginForm = props => {
   const { t } = useTranslation()
   const { setToken, setTabsList } = props
+  debugger
   const navigate = useNavigate()
   const [form] = Form.useForm()
   const [loading, setLoading] = useState()
@@ -57,5 +59,5 @@ const LoginForm = props => {
     </Form>
   )
 }
-const mapDispatchToProps = { setToken }
+const mapDispatchToProps = { setToken,setTabsList }
 export default connect(null, mapDispatchToProps)(LoginForm)
