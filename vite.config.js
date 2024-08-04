@@ -27,6 +27,7 @@ export default defineConfig(mode => {
     resolve: {
       alias: {
         '@': resolve(__dirname, './src'),
+        // '@ant-design/icons-vue$': resolve('./src/assets/antd/icons.js')
       },
     },
     build: {

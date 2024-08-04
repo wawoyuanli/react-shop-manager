@@ -2,7 +2,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+/* 引入提供器 */
 import { Provider } from 'react-redux'
+/* 引入store*/
 import { store, persistor } from './redux/index.js'
 import { PersistGate } from 'redux-persist/integration/react'
 // import 'virtual:svg-icons-register'

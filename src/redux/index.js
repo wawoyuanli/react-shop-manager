@@ -1,22 +1,20 @@
+/* 主要用来创建仓库，引用reducer,并导出store */
 import { legacy_createStore as createStore, combineReducers, compose } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
 import { applyMiddleware } from 'redux'
 import storage from 'redux-persist/lib/storage'
 import reduxThunk from 'redux-thunk'
 import reduxPromise from 'redux-promise'
-// import global from '@/redux/modules/global/reducer.js'
+import global from '@/redux/modules/global/reducer.js'
 // import menu from './modules/menu/reducer'
 // import tabs from './modules/tabs/reducer'
 // import auth from './modules/auth/reducer'
 // import breadcrumb from './modules/breadcrumb/reducer'
-
+import aReducer from './modules/A/reducer.js'
 // 创建reducer(拆分reducer)
 const reducer = combineReducers({
-  // global,
-  // menu,
-  // tabs,
-  // auth,
-  // breadcrumb,
+  aReducer,
+  global,
 })
 
 // redux 持久化配置
