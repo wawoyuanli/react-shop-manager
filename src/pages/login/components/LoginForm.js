@@ -26,6 +26,7 @@ const LoginForm = props => {
     message.success('登录成功')
     navigate(HOME_URL)
   }
+  const onFinishFailed = () => {}
 
   return (
     <Form form={form} name="basic" labelCol={{ span: 5 }} initialValues={{ remember: true }} onFinish={onFinish} onFinishFailed={onFinishFailed} size="large" autoComplete="off">
