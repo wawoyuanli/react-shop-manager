@@ -32,25 +32,31 @@ export default defineConfig(mode => {
         // '@ant-design/icons-vue$': resolve('./src/assets/antd/icons.js')
       },
     },
+    server: {
+      port: 8989,
+      host: 'localhost',
+      cors: true,
+      proxy: {
+        '/api': {
+          target: 'https://mock.mengxuegu.com/mock/62abda3212c1416424630a45/hooks/login',
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/api/, ''),
+        },
+      },
+    },
     build: {
       commonjsOptions: {
         transformMixedEsModules: true,
       },
+      outDir: 'dist',
+      minify: 'esbuild',
+      rollupOptions: {
+        output: {
+          chunkFileNames: 'assets/js/[name]-[hash].js',
+          entryFileNames: 'assets/js/[name]-[hash].js',
+          assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
+        },
+      },
     },
-  	server: {
-			host: "0.0.0.0", // 服务器主机名，如果允许外部访问，可设置为"0.0.0.0"
-			port: 8089,
-			open: true,
-			cors: true,
-			// https: false,
-			// 代理跨域（mock 不需要配置，这里只是个事列）
-			proxy: {
-				"/api": {
-					target: "https://mock.mengxuegu.com/mock/62abda3212c1416424630a45", // easymock
-					changeOrigin: true,
-					rewrite: path => path.replace(/^\/api/, "")
-				}
-			}
-		},
   }
 })

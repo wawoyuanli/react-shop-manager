@@ -1,5 +1,5 @@
-/* 入口文件 */
-import { getBrowserLang } from './utils/util.js'
+/* 顶级react组件 */
+import { getBrowserLang } from '@/utils/util.js'
 import { HashRouter } from 'react-router-dom'
 import Router from './routers/index.js'
 import { ConfigProvider } from 'antd'
@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import useTheme from './hooks/useTheme.js'
 import React from 'react'
-// import 'moment/dist/locale/zh-cn'
+import 'moment/dist/locale/zh-cn'
 function App(props) {
   console.log(props,'app-props')
   const { language, assemblySize, themeConfig, setLanguage } = props
@@ -29,6 +29,13 @@ function App(props) {
     if (getBrowserLang() === 'zh') return setI18nLocale(zhCN)
     if (getBrowserLang() === 'en') return setI18nLocale(enUS)
   }
+	// useEffect(() => {
+	// 	// 全局使用国际化
+	// 	i18n.changeLanguage(language || getBrowserLang());
+	// 	setLanguage(language || getBrowserLang());
+	// 	setAntdLanguage()
+	// }, [language])
+
   return (
     <HashRouter>
       <ConfigProvider locale={i18nLocale} componentSize={assemblySize}>

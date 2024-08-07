@@ -1,21 +1,18 @@
-import { PORT1 } from "@/api/config/servicePort";
+/* 
+ 登录模块
+*/
+import { PORT1 } from '@/api/config/servicePort.js'
+import http from '@/api/index.js'
 
-import http from "@/api";
+/* 用户登录接口 */
+export const loginApi = params => {
+  return http.post(PORT1 + `/login`, params)
+}
 
-/**
- * @name 登录模块
- */
-// * 用户登录接口
-export const loginApi = (params) => {
-	return http.post(PORT1 + `/login`, params);
-};
-
-// * 获取按钮权限
 export const getAuthorButtons = () => {
-	return http.get(PORT1 + `/auth/buttons`);
-};
+  return http.get(PORT1 + `/auth/buttons  `)
+}
 
-// * 获取菜单列表
 export const getMenuList = () => {
-	return http.get(PORT1 + `/menu/list`);
-};
+  return http.get(PORT1 + `/menu/list`)
+}

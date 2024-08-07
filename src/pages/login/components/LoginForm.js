@@ -1,14 +1,14 @@
-import md5 from "js-md5";
-import { Button, Form, Input,message } from 'antd'
+import { Button, Form, Input, message } from 'antd'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import { HOME_URL } from "@/config/config.js";
+import { HOME_URL } from '@/config/config.js'
 import { UserOutlined, LockOutlined, CloseCircleOutlined } from '@ant-design/icons'
 import { connect } from 'react-redux'
-import { loginApi } from "@/api/modules/login.js";
+import { loginApi } from '@/api/modules/login.js'
 import { setToken } from '@/redux/modules/global/action.js'
-import { setTabsList } from "@/redux/modules/tabs/action";
+import { setTabsList } from '@/redux/modules/tabs/action'
+import md5 from 'js-md5'
 import React from 'react'
 const LoginForm = props => {
   const { t } = useTranslation()
@@ -19,20 +19,13 @@ const LoginForm = props => {
   const [loading, setLoading] = useState()
   /* 登录 */
   const onFinish = async loginForm => {
-    try {
-			setLoading(true);
-			loginForm.password = md5(loginForm.password);
-			const { data } = await loginApi(loginForm);
-			setToken(data?.access_token);
-			setTabsList([]);
-			message.success("登录成功！");
-			navigate(HOME_URL);
-		} finally {
-			setLoading(false);
-		}
-  }
-  const onFinishFailed = (errorInfo) => {
-    console.log(errorInfo)
+    setLoading(true)
+    loginForm.password = md5(loginForm.password)
+    const { data } = await loginApi(loginForm)
+    setToken(data?.access_token)
+    setTabsList([])
+    message.success('登录成功')
+    navigate(HOME_URL)
   }
 
   return (
@@ -59,5 +52,5 @@ const LoginForm = props => {
     </Form>
   )
 }
-const mapDispatchToProps = { setToken,setTabsList }
+const mapDispatchToProps = { setToken, setTabsList }
 export default connect(null, mapDispatchToProps)(LoginForm)

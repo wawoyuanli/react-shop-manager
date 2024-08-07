@@ -5,7 +5,7 @@ import { applyMiddleware } from 'redux'
 import storage from 'redux-persist/lib/storage'
 import reduxThunk from 'redux-thunk'
 import reduxPromise from 'redux-promise'
-import global from '@/redux/modules/global/reducer.js'
+import globalReducer from '@/redux/modules/global/reducer.js'
 // import menu from './modules/menu/reducer'
 import tabs from './modules/tabs/reducer'
 // import auth from './modules/auth/reducer'
@@ -13,9 +13,11 @@ import tabs from './modules/tabs/reducer'
 import aReducer from './modules/A/reducer.js'
 // 创建reducer(拆分reducer)
 const reducer = combineReducers({
-  aReducer,
-  global,
-  tabs
+  globalReducer: globalReducer || null,
+  // menu,
+  // tabs,
+  // auth,
+  // breadcrumb,
 })
 
 // redux 持久化配置
