@@ -8,6 +8,7 @@ import { message } from 'antd'
 import { ResultEnum } from '@/enums/httpEnum.js'
 import { checkStatus } from './helper/checkStatus.js'
 const axiosCanceler = new AxiosCanceler()
+console.log(import.meta.env.VITE_API_URL, 'import.meta.env.VITE_API_URL')
 const config = {
   baseURL: import.meta.env.VITE_API_URL,
   timeout: 10000,
@@ -28,7 +29,8 @@ class RequestHttp {
       {headers: { noLoading: true } } 来控制不显示loading，参见loginApi
       */
         config.headers.noLoading || showFullScreenLoading()
-        const token = '11' || store.getState().global.token
+        console.log(store.getState(), 'store.getState()')
+        const token = store.getState().global.token || '11'
         return { ...config, headers: { ...config.headers, 'x-access-token': token } }
       },
       error => {

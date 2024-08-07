@@ -38,7 +38,7 @@ export default defineConfig(mode => {
       cors: true,
       proxy: {
         '/api': {
-          target: 'https://mock.mengxuegu.com/mock/62abda3212c1416424630a45/hooks/login',
+          target: 'https://mock.mengxuegu.com/mock/62abda3212c1416424630a45',
           changeOrigin: true,
           rewrite: path => path.replace(/^\/api/, ''),
         },
