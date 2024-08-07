@@ -7,13 +7,12 @@ import { UserOutlined, LockOutlined, CloseCircleOutlined } from '@ant-design/ico
 import { connect } from 'react-redux'
 import { loginApi } from '@/api/modules/login.js'
 import { setToken } from '@/redux/modules/global/action.js'
-import { setTabsList } from '@/redux/modules/tabs/action'
+import { setTabsList } from '@/redux/modules/tabs/action.js'
 import md5 from 'js-md5'
 import React from 'react'
 const LoginForm = props => {
   const { t } = useTranslation()
   const { setToken, setTabsList } = props
-  debugger
   const navigate = useNavigate()
   const [form] = Form.useForm()
   const [loading, setLoading] = useState()
