@@ -17,7 +17,7 @@ function App(props) {
   console.log(props,'app-props')
   const { language, assemblySize, themeConfig, setLanguage } = props
   const [i18nLocale, setI18nLocale] = useState(zhCN)
-
+debugger
   /* 全局使用主题 */
   useTheme(themeConfig)
 
@@ -29,12 +29,12 @@ function App(props) {
     if (getBrowserLang() === 'zh') return setI18nLocale(zhCN)
     if (getBrowserLang() === 'en') return setI18nLocale(enUS)
   }
-	// useEffect(() => {
-	// 	// 全局使用国际化
-	// 	i18n.changeLanguage(language || getBrowserLang());
-	// 	setLanguage(language || getBrowserLang());
-	// 	setAntdLanguage()
-	// }, [language])
+	useEffect(() => {
+		// 全局使用国际化
+		i18n.changeLanguage(language || getBrowserLang());
+		setLanguage(language || getBrowserLang());
+		setAntdLanguage()
+	}, [language])
 
   return (
     <HashRouter>

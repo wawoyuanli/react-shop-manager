@@ -1,4 +1,4 @@
-import * as types from '../../../redux/mutation-types'
+import * as types from '../../../redux/mutation-types.js'
 
 /* setToken */
 export const setToken = token => {
