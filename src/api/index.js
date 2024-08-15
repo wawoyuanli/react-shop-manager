@@ -30,7 +30,7 @@ class RequestHttp {
       */
         config.headers.noLoading || showFullScreenLoading()
         console.log(store.getState(), 'store.getState()')
-        const token = store.getState().global.token || '11'
+        const token = store.getState().globalReducer.token || '11'
         return { ...config, headers: { ...config.headers, 'x-access-token': token } }
       },
       error => {

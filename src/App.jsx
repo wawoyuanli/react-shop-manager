@@ -17,7 +17,6 @@ function App(props) {
   console.log(props,'app-props')
   const { language, assemblySize, themeConfig, setLanguage } = props
   const [i18nLocale, setI18nLocale] = useState(zhCN)
-debugger
   /* 全局使用主题 */
   useTheme(themeConfig)
 
@@ -31,7 +30,7 @@ debugger
   }
 	useEffect(() => {
 		// 全局使用国际化
-		i18n.changeLanguage(language || getBrowserLang());
+		// i18n.changeLanguage(getBrowserLang());
 		setLanguage(language || getBrowserLang());
 		setAntdLanguage()
 	}, [language])
@@ -45,8 +44,7 @@ debugger
   )
 }
 const mapStateToProps = state => {
-  console.log(state,'app-state')
-  return state.global
+  return state.globalReducer
 }
 const mapDispatchToProps = { setLanguage }
 /* connect(state映射，dispatch映射)(当前组件) */
