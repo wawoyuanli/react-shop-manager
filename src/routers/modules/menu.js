@@ -21,7 +21,7 @@ const menuRouter = [
       },
       {
         path: '/menu/menu2/menu21',
-        element: lazyLoad(React.lazy(() => import('@/views/menu/menu2/menu21/index'))),
+        element: lazyLoad(React.lazy(() => import('@/pages/menu/menu2/menu21/index'))),
         meta: {
           requiresAuth: true,
           title: '菜单2-1',
@@ -30,7 +30,7 @@ const menuRouter = [
       },
       {
         path: '/menu/menu2/menu22/menu221',
-        element: lazyLoad(React.lazy(() => import('@/views/menu/menu2/menu22/menu221/index'))),
+        element: lazyLoad(React.lazy(() => import('@/pages/menu/menu2/menu22/menu221/index'))),
         meta: {
           requiresAuth: true,
           title: '菜单2-2-1',
@@ -39,7 +39,7 @@ const menuRouter = [
       },
       {
         path: '/menu/menu2/menu22/menu222',
-        element: lazyLoad(React.lazy(() => import('@/views/menu/menu2/menu22/menu222/index'))),
+        element: lazyLoad(React.lazy(() => import('@/pages/menu/menu2/menu22/menu222/index'))),
         meta: {
           requiresAuth: true,
           title: '菜单2-2-2',
@@ -48,7 +48,7 @@ const menuRouter = [
       },
       {
         path: '/menu/menu2/menu23',
-        element: lazyLoad(React.lazy(() => import('@/views/menu/menu2/menu23/index'))),
+        element: lazyLoad(React.lazy(() => import('@/pages/menu/menu2/menu23/index'))),
         meta: {
           requiresAuth: true,
           title: '菜单2-3',
@@ -57,7 +57,7 @@ const menuRouter = [
       },
       {
         path: '/menu/menu3',
-        element: lazyLoad(React.lazy(() => import('@/views/menu/menu3/index'))),
+        element: lazyLoad(React.lazy(() => import('@/pages/menu/menu3/index'))),
         meta: {
           requiresAuth: true,
           title: '菜单3',
