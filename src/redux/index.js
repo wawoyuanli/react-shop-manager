@@ -6,16 +6,16 @@ import storage from 'redux-persist/lib/storage'
 import reduxThunk from 'redux-thunk'
 import reduxPromise from 'redux-promise'
 import globalReducer from '@/redux/modules/global/reducer.js'
-// import menu from './modules/menu/reducer'
-import tabs from './modules/tabs/reducer'
+import menuReducer from './modules/menu/reducer.js'
+import tabsReducer from './modules/tabs/reducer'
 // import auth from './modules/auth/reducer'
 // import breadcrumb from './modules/breadcrumb/reducer'
-import aReducer from './modules/A/reducer.js'
+
 // 创建reducer(拆分reducer)
 const reducer = combineReducers({
   globalReducer: globalReducer || null,
-  // menu,
-  // tabs,
+  menuReducer,
+  tabsReducer,
   // auth,
   // breadcrumb,
 })
