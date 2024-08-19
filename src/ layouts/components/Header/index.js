@@ -7,7 +7,7 @@ import Language from './components/Language'
 import Theme from './components/Theme'
 import Fullscreen from './components/Fullscreen'
 import './index.less'
-
+import React from 'react'
 const LayoutHeader = () => {
   const { Header } = Layout
 

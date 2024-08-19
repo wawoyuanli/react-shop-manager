@@ -1,6 +1,7 @@
 /* 顶级react组件 */
 import { getBrowserLang } from '@/utils/util.js'
 import { HashRouter } from 'react-router-dom'
+import AuthRouter from "@/routers/utils/authRouter";
 import Router from './routers/index.js'
 import { ConfigProvider } from 'antd'
 import { setLanguage } from './redux/modules/global/action.js'
@@ -38,15 +39,16 @@ function App(props) {
   return (
     <HashRouter>
       <ConfigProvider locale={i18nLocale} componentSize={assemblySize}>
-        <Router />
+        <AuthRouter>
+            <Router />
+        </AuthRouter>
       </ConfigProvider>
     </HashRouter>
   )
 }
 const mapStateToProps = state => {
-  debugger
   // console.log(state.menuReducer,'state.menuReducer')
-  // return state.menuReducer
+  return state.menuReducer
 }
 const mapDispatchToProps = { setLanguage }
 /* connect(state映射，dispatch映射)(当前组件) */

@@ -40,7 +40,7 @@ const MoreButton = props => {
     />
   )
   return (
-    <Dropdown overlay={menu} placement="bottom" arrow={{ pointAtCenter: true }} trigger={['click']}>
+    <Dropdown menu={menu} placement="bottom" arrow={{ pointAtCenter: true }} trigger={['click']}>
       <Button className="more-button" type="primary" size="small">
         {t('tabs.more')} <DownOutlined />
       </Button>

@@ -9,10 +9,11 @@ import { routerArray } from '@/routers'
 import { searchRoute } from '@/utils/util'
 import MoreButton from './components/MoreButton'
 import './index.less'
+import React from 'react'
 
 const LayoutTabs = props => {
-  const { tabsList } = props.tabs
-  const { themeConfig } = props.global
+  const { tabsList } = props.tabsReducer
+  const { themeConfig } = props.globalReducer
   const { setTabsList } = props
   const { TabPane } = Tabs
   const { pathname } = useLocation()
@@ -33,7 +34,7 @@ const LayoutTabs = props => {
     const route = searchRoute(pathname, routerArray)
     let newTabsList = JSON.parse(JSON.stringify(tabsList))
     if (tabsList.every(item => item.path !== route.path)) {
-      newTabsList.push({ title: route.meta.title, path: route.path })
+      newTabsList.push({ title: '00', path: '/login' })
     }
     setTabsList(newTabsList)
     setActiveValue(pathname)

@@ -1,7 +1,7 @@
 import screenfull from 'screenfull'
 import { message } from 'antd'
 import { useEffect, useState } from 'react'
-
+import React from 'react'
 const Fullscreen = () => {
   const [fullScreen, setFullScreen] = useState(screenfull.isFullscreen)
 

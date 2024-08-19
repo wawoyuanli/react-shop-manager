@@ -5,12 +5,13 @@ import { FireOutlined, SettingOutlined } from '@ant-design/icons'
 import { setThemeConfig } from '@/redux/modules/global/action'
 import { updateCollapse } from '@/redux/modules/menu/action'
 import SwitchDark from '@/components/SwitchDark'
+import React from 'react'
 
 const Theme = props => {
   const [visible, setVisible] = useState(false)
   const { setThemeConfig, updateCollapse } = props
-  const { isCollapse } = props.menu
-  const { themeConfig } = props.global
+  const { isCollapse } = props.menuReducer
+  const { themeConfig } = props.globalReducer
   const { weakOrGray, breadcrumb, tabs, footer } = themeConfig
 
   const setWeakOrGray = (checked, theme) => {
@@ -36,7 +37,7 @@ const Theme = props => {
         onClose={() => {
           setVisible(false)
         }}
-        visible={visible}
+        open={visible}
         width={320}
       >
         {/* 全局主题 */}

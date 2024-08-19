@@ -8,6 +8,7 @@ const menuState = {
 
 /* 导出一个函数 传实际的参数了，就用实际的参数，否则就用defaultState*/
 const menuReducer = (state = menuState, action) => {
+  console.log(action, 'meneReducer')
   return state
   // produce(state, draftState => {
   //   switch (action.type) {

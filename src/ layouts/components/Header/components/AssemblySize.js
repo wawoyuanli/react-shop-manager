@@ -1,7 +1,7 @@
 import { Dropdown, Menu } from 'antd'
 import { setAssemblySize } from '@/redux/modules/global/action'
 import { connect } from 'react-redux'
-
+import React from 'react'
 const AssemblySize = props => {
   const { assemblySize, setAssemblySize } = props
 
@@ -35,12 +35,12 @@ const AssemblySize = props => {
     />
   )
   return (
-    <Dropdown overlay={menu} placement="bottom" trigger={['click']} arrow={true}>
+    <Dropdown menu={menu} placement="bottom" trigger={['click']} arrow={true}>
       <i className="icon-style iconfont icon-contentright"></i>
     </Dropdown>
   )
 }
 
-const mapStateToProps = state => state.global
+const mapStateToProps = state => state.globalReducer
 const mapDispatchToProps = { setAssemblySize }
 export default connect(mapStateToProps, mapDispatchToProps)(AssemblySize)

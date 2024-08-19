@@ -48,11 +48,14 @@ const LayoutMenu = props => {
   }
 
   // 处理后台返回菜单 key 值为 antd 菜单需要的 key 值
-  const deepLoopFloat = (menuList, newArr) => {
+  const deepLoopFloat = (menuList, newArr = []) => {
     menuList.forEach(item => {
       // 下面判断代码解释 *** !item?.children?.length   ==>   (!item.children || item.children.length === 0)
-      if (!item?.children?.length) return newArr.push(getItem(item.title, item.path, addIcon(item.icon)))
-      newArr.push(getItem(item.title, item.path, addIcon(item.icon), deepLoopFloat(item.children)))
+      if (!item?.children?.length) {
+        return newArr.push(getItem(item.title, item.path, addIcon(item.icon)))
+      } else {
+        newArr.push(getItem(item.title, item.path, addIcon(item.icon), deepLoopFloat(item.children)))
+      }
     })
     return newArr
   }
@@ -80,7 +83,7 @@ const LayoutMenu = props => {
     getMenuData()
   }, [])
 
-  // 点击当前菜单跳转页面
+  /* 点击当前菜单跳转页面 */
   const navigate = useNavigate()
   const clickMenu = key => {
     const route = searchRoute(key, props.menuList)

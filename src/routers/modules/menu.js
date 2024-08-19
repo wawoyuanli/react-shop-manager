@@ -67,5 +67,4 @@ const menuRouter = [
     ],
   },
 ]
-
 export default menuRouter

@@ -2,10 +2,11 @@ import { Breadcrumb } from 'antd'
 import { useLocation } from 'react-router-dom'
 import { HOME_URL } from '@/config/config'
 import { connect } from 'react-redux'
+import React from 'react'
 
 const BreadcrumbNav = props => {
   const { pathname } = useLocation()
-  const { themeConfig } = props.global
+  const { themeConfig } = props.globalReducer
   const breadcrumbList = props.breadcrumb.breadcrumbList[pathname] || []
 
   return (

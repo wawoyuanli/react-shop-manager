@@ -1,6 +1,6 @@
 import logo from '@/assets/images/logo.png'
 import { connect } from 'react-redux'
-
+import React from 'react'
 const Logo = props => {
   const { isCollapse } = props
   return (

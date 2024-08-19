@@ -8,7 +8,7 @@ import { setToken } from '@/redux/modules/global/action'
 import PasswordModal from './PasswordModal'
 import InfoModal from './InfoModal'
 import avatar from '@/assets/images/avatar.png'
-
+import React from 'react'
 const AvatarIcon = props => {
   const { setToken } = props
   const navigate = useNavigate()
@@ -67,7 +67,7 @@ const AvatarIcon = props => {
   )
   return (
     <>
-      <Dropdown overlay={menu} placement="bottom" arrow trigger={['click']}>
+      <Dropdown menu={menu} placement="bottom" arrow trigger={['click']}>
         <Avatar size="large" src={avatar} />
       </Dropdown>
       <InfoModal innerRef={infoRef}></InfoModal>

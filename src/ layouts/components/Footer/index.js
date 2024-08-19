@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import './index.less'
-
+import React from 'react'
 const LayoutFooter = props => {
   const { themeConfig } = props
   return (
@@ -16,5 +16,5 @@ const LayoutFooter = props => {
   )
 }
 
-const mapStateToProps = state => state.global
+const mapStateToProps = state => state.globalReducer
 export default connect(mapStateToProps)(LayoutFooter)

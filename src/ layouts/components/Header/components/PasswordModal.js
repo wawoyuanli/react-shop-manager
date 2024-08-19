@@ -1,5 +1,6 @@
 import { useState, useImperativeHandle, Ref } from 'react'
 import { Modal, message } from 'antd'
+import React from 'react'
 
 const PasswordModal = props => {
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -22,7 +23,7 @@ const PasswordModal = props => {
     setIsModalVisible(false)
   }
   return (
-    <Modal title="修改密码" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} destroyOnClose={true}>
+    <Modal title="修改密码" open={isModalVisible} onOk={handleOk} onCancel={handleCancel} destroyOnClose={true}>
       <p>Some Password...</p>
       <p>Some Password...</p>
       <p>Some Password...</p>

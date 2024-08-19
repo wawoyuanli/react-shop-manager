@@ -33,22 +33,8 @@ const rootRouter = [
   },
   ...routerArray,
   {
-    path: '/home/index',
-    element: <Home />,
-    meta: {
-      requiresAuth: true,
-      title: '首页',
-      key: 'home',
-    },
-  },
-  {
-    path: '/panel/index',
-    element: <Panel />,
-    meta: {
-      requiresAuth: true,
-      title: '面板',
-      key: 'panel',
-    },
+    path: '*',
+    element: <Navigate to="/404" />,
   },
 ]
 const Router = () => {

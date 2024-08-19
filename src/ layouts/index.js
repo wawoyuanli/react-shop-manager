@@ -10,7 +10,7 @@ import LayoutHeader from './components/Header/index.js'
 import LayoutTabs from './components/Tabs'
 import LayoutFooter from './components/Footer'
 import './index.less'
-
+import React from 'react'
 const LayoutIndex = props => {
   const { Sider, Content } = Layout
   const { isCollapse, updateCollapse, setAuthButtons } = props
@@ -56,8 +56,7 @@ const LayoutIndex = props => {
 }
 
 const mapStateToProps = state => {
-  // state.menuReducer
-  debugger
+  return state.menuReducer
 }
 const mapDispatchToProps = { setAuthButtons, updateCollapse }
 export default connect(mapStateToProps, mapDispatchToProps)(LayoutIndex)
