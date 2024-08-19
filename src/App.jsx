@@ -44,7 +44,9 @@ function App(props) {
   )
 }
 const mapStateToProps = state => {
-  return state.globalReducer
+  debugger
+  // console.log(state.menuReducer,'state.menuReducer')
+  // return state.menuReducer
 }
 const mapDispatchToProps = { setLanguage }
 /* connect(state映射，dispatch映射)(当前组件) */

@@ -55,6 +55,9 @@ const LayoutIndex = props => {
   )
 }
 
-const mapStateToProps = state => state.menu
+const mapStateToProps = state => {
+  // state.menuReducer
+  debugger
+}
 const mapDispatchToProps = { setAuthButtons, updateCollapse }
 export default connect(mapStateToProps, mapDispatchToProps)(LayoutIndex)

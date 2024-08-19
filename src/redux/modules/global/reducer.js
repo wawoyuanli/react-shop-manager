@@ -27,6 +27,7 @@ const globalState = {
 // global reducer
 const globalReducer = (state = globalState, action) =>
   produce(state, draftState => {
+    const { type, data } = action
     console.log(action, 'action')
     switch (action.type) {
       case types.SET_TOKEN:
@@ -45,5 +46,4 @@ const globalReducer = (state = globalState, action) =>
         return draftState
     }
   })
-
 export default globalReducer

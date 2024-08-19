@@ -98,6 +98,8 @@ const LayoutMenu = props => {
   )
 }
 
-const mapStateToProps = state => state.menu
+const mapStateToProps = state => {
+  return state.menuReducer
+}
 const mapDispatchToProps = { setMenuList, setBreadcrumbList, setAuthRouter }
 export default connect(mapStateToProps, mapDispatchToProps)(LayoutMenu)

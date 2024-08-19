@@ -1,6 +1,5 @@
 import * as types from '@/redux/mutation-types'
 import { getMenuList } from '@/api/modules/login'
-import { Dispatch } from 'react'
 
 // * updateCollapse
 export const updateCollapse = isCollapse => ({
@@ -21,7 +20,7 @@ export const getMenuListActionThunk = () => {
     const res = await getMenuList()
     dispatch({
       type: types.SET_MENU_LIST,
-      menuList: res.data ?? [],
+      menuList: res.data || [],
     })
   }
 }

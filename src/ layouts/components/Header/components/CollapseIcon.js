@@ -16,6 +16,9 @@ const CollapseIcon = props => {
   )
 }
 
-const mapStateToProps = state => state.menu
+const mapStateToProps = state => {
+  // state.menuReducer
+  debugger
+}
 const mapDispatchToProps = { updateCollapse }
 export default connect(mapStateToProps, mapDispatchToProps)(CollapseIcon)

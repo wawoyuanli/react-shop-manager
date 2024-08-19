@@ -8,16 +8,16 @@ import reduxPromise from 'redux-promise'
 import globalReducer from '@/redux/modules/global/reducer.js'
 import menuReducer from './modules/menu/reducer.js'
 import tabsReducer from './modules/tabs/reducer'
-// import auth from './modules/auth/reducer'
-// import breadcrumb from './modules/breadcrumb/reducer'
+import auth from './modules/auth/reducer'
+import breadcrumb from './modules/breadcrumb/reducer'
 
 // 创建reducer(拆分reducer)
 const reducer = combineReducers({
   globalReducer: globalReducer || null,
   menuReducer,
   tabsReducer,
-  // auth,
-  // breadcrumb,
+  auth,
+  breadcrumb,
 })
 
 // redux 持久化配置

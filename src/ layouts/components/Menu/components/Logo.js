@@ -11,5 +11,7 @@ const Logo = props => {
   )
 }
 
-const mapStateToProps = state => state.menu
+const mapStateToProps = state => {
+  return state.menuReducer
+}
 export default connect(mapStateToProps)(Logo)
