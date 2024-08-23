@@ -9,6 +9,7 @@ import PasswordModal from './PasswordModal'
 import InfoModal from './InfoModal'
 import avatar from '@/assets/images/avatar.png'
 import React from 'react'
+import '../../../../assets/iconfont/iconfont.less'
 const AvatarIcon = props => {
   const { setToken } = props
   const navigate = useNavigate()

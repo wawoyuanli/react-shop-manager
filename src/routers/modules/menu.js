@@ -2,7 +2,7 @@ import React from 'react'
 import lazyLoad from '@/routers/utils/lazyLoad'
 import { LayoutIndex } from '@/routers/constant.js'
 
-// menu 模块
+/* menu 模块 */
 const menuRouter = [
   {
     element: <LayoutIndex />,
@@ -12,7 +12,7 @@ const menuRouter = [
     children: [
       {
         path: '/menu/menu1',
-        element: lazyLoad(React.lazy(() => import('@/views/menu/menu1/index'))),
+        element: lazyLoad(React.lazy(() => import('@/pages/menu/menu1/index'))),
         meta: {
           requiresAuth: true,
           title: '菜单1',

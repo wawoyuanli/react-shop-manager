@@ -16,7 +16,7 @@ const AssemblySize = props => {
         {
           key: 'middle',
           disabled: assemblySize === 'middle',
-          label: <span>默认</span>,
+          label: <span>默认11</span>,
           onClick,
         },
         {
@@ -41,6 +41,8 @@ const AssemblySize = props => {
   )
 }
 
-const mapStateToProps = state => state.globalReducer
+const mapStateToProps = state => {
+  return state.globalReducer
+}
 const mapDispatchToProps = { setAssemblySize }
 export default connect(mapStateToProps, mapDispatchToProps)(AssemblySize)

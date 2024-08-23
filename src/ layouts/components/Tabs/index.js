@@ -75,7 +75,7 @@ const LayoutTabs = props => {
                   key={item.path}
                   tab={
                     <span>
-                      {item.path == HOME_URL ? <HomeFilled /> : ''}
+                      {item.path === HOME_URL ? <HomeFilled /> : ''}
                       {item.title}
                     </span>
                   }

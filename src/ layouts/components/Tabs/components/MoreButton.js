@@ -3,7 +3,7 @@ import { DownOutlined } from '@ant-design/icons'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { HOME_URL } from '@/config/config'
-
+import React from 'react'
 const MoreButton = props => {
   const { t } = useTranslation()
   const { pathname } = useLocation()

@@ -13,9 +13,9 @@ const BreadcrumbNav = props => {
     <>
       {!themeConfig.breadcrumb && (
         <Breadcrumb>
-          <Breadcrumb.Item href={`#${HOME_URL}`}>首页</Breadcrumb.Item>
+          <Breadcrumb.Item href={`#${HOME_URL}`} items={[{ title: '首页' }]}></Breadcrumb.Item>
           {breadcrumbList.map(item => {
-            return <Breadcrumb.Item key={item}>{item !== '首页' ? item : null}</Breadcrumb.Item>
+            return <Breadcrumb.Item key={item} items={[{ title: '首页' }]}></Breadcrumb.Item>
           })}
         </Breadcrumb>
       )}

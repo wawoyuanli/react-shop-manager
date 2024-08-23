@@ -20,7 +20,8 @@ const LayoutMenu = props => {
   // 刷新页面菜单保持高亮
   useEffect(() => {
     setSelectedKeys([pathname])
-    // isCollapse ? null : setOpenKeys(getOpenKeys(pathname))
+    // eslint-disable-next-line no-unused-expressions
+    isCollapse ? null : setOpenKeys(getOpenKeys(pathname))
   }, [pathname, isCollapse])
 
   // 设置当前展开的 subMenu
@@ -85,10 +86,10 @@ const LayoutMenu = props => {
 
   /* 点击当前菜单跳转页面 */
   const navigate = useNavigate()
-  const clickMenu = key => {
-    const route = searchRoute(key, props.menuList)
+  const clickMenu = item => {
+    const route = searchRoute(item.key, props.menuList)
     if (route.isLink) window.open(route.isLink, '_blank')
-    navigate(key)
+    navigate(item.key)
   }
 
   return (

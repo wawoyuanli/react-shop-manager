@@ -5,7 +5,7 @@ import AuthRouter from "@/routers/utils/authRouter";
 import Router from './routers/index.js'
 import { ConfigProvider } from 'antd'
 import { setLanguage } from './redux/modules/global/action.js'
-// import i18n from 'i18next'
+import i18n from 'i18next'
 import zhCN from 'antd/lib/locale/zh_CN'
 import enUS from 'antd/lib/locale/en_US'
 import { useState, useEffect } from 'react'
@@ -30,6 +30,7 @@ function App(props) {
     if (getBrowserLang() === 'en') return setI18nLocale(enUS)
   }
 	useEffect(() => {
+    console.log(getBrowserLang(),'getBrowserLang()')
 		// 全局使用国际化
 		// i18n.changeLanguage(getBrowserLang());
 		setLanguage(language || getBrowserLang());
@@ -48,7 +49,7 @@ function App(props) {
 }
 const mapStateToProps = state => {
   // console.log(state.menuReducer,'state.menuReducer')
-  return state.menuReducer
+  return state.globalReducer
 }
 const mapDispatchToProps = { setLanguage }
 /* connect(state映射，dispatch映射)(当前组件) */
