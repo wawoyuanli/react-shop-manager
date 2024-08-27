@@ -1,9 +1,9 @@
-import * as types from '../../../redux/mutation-types.js'
+import { SET_TOKEN, SET_ASSEMBLY_SIZE, SET_LANGUAGE, SET_THEME_CONFIG } from '../../../redux/mutation-types.js'
 
 /* setToken */
 export const setToken = token => {
   return {
-    type: types.SET_TOKEN,
+    type: SET_TOKEN,
     token,
   }
 }
@@ -11,7 +11,7 @@ export const setToken = token => {
 /* setAssemblySize */
 export const setAssemblySize = assemblySize => {
   return {
-    type: types.SET_ASSEMBLY_SIZE,
+    type: SET_ASSEMBLY_SIZE,
     assemblySize,
   }
 }
@@ -19,7 +19,7 @@ export const setAssemblySize = assemblySize => {
 /* setLanguage */
 export const setLanguage = language => {
   return {
-    type: types.SET_LANGUAGE,
+    type: SET_LANGUAGE,
     language,
   }
 }
@@ -27,7 +27,7 @@ export const setLanguage = language => {
 /* setThemeConfig */
 export const setThemeConfig = themeConfig => {
   return {
-    type: types.SET_THEME_CONFIG,
+    type: SET_THEME_CONFIG,
     themeConfig,
   }
 }

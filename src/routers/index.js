@@ -18,7 +18,7 @@ Object.keys(metaRouters).forEach(item => {
 const rootRouter = [
   {
     path: '/',
-    element: <Navigate to="/login" />,
+    element: <Navigate to="/menu/menu1" />,
   },
   {
     path: '/login',

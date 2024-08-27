@@ -25,6 +25,7 @@ const LoginForm = props => {
     setToken(data?.access_token)
     setTabsList([])
     message.success('登录成功')
+    /* 路由跳转 */
     navigate(HOME_URL)
   }
   const onFinishFailed = () => {}

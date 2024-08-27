@@ -11,16 +11,15 @@ import enUS from 'antd/lib/locale/en_US'
 import { useState, useEffect } from 'react'
 /* 引入连接器 */
 import { connect } from 'react-redux'
-import useTheme from './hooks/useTheme.js'
+// import useTheme from './hooks/useTheme.js'
 import React from 'react'
 import 'moment/dist/locale/zh-cn'
 function App(props) {
   console.log(props,'app-props')
-  const { language, assemblySize, themeConfig, setLanguage } = props
+  const { language, assemblySize, setLanguage } = props
   const [i18nLocale, setI18nLocale] = useState(zhCN)
   /* 全局使用主题 */
-  useTheme(themeConfig)
-
+  // useTheme(themeConfig)
   /* 设置antd语言国际化 */
   const setAntdLanguage = () => {
     /* 如果 redux 中有默认语言就设置成 redux 的默认语言，没有默认语言就设置成浏览器默认语言 */

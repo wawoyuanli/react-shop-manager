@@ -8,17 +8,25 @@ const BreadcrumbNav = props => {
   const { pathname } = useLocation()
   const { themeConfig } = props.globalReducer
   const breadcrumbList = props.breadcrumb.breadcrumbList[pathname] || []
-
+  const items = [
+    {
+      title: 'Home',
+    },
+    {
+      title: <a href="">Application Center</a>,
+    },
+    {
+      title: <a href="">Application List</a>,
+    },
+    {
+      title: 'An Application',
+    },
+  ]
   return (
     <>
-      {!themeConfig.breadcrumb && (
-        <Breadcrumb>
-          <Breadcrumb.Item href={`#${HOME_URL}`} items={[{ title: '首页' }]}></Breadcrumb.Item>
-          {breadcrumbList.map(item => {
-            return <Breadcrumb.Item key={item} items={[{ title: '首页' }]}></Breadcrumb.Item>
-          })}
-        </Breadcrumb>
-      )}
+      {/* <Breadcrumb items={items}>
+       
+      </Breadcrumb> */}
     </>
   )
 }

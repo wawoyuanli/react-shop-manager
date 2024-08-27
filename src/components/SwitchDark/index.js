@@ -8,10 +8,13 @@ const SwitchDark = props => {
   const onChange = checked => {
     setThemeConfig({ ...themeConfig, isDark: checked })
   }
-
   return <Switch className="dark" defaultChecked={themeConfig.isDark} checkedChildren={<>🌞</>} unCheckedChildren={<>🌜</>} onChange={onChange} />
 }
 
-const mapStateToProps = state => state.globalReducer
+/* state */
+const mapStateToProps = state => {
+  return state.globalReducer
+}
+/* action */
 const mapDispatchToProps = { setThemeConfig }
 export default connect(mapStateToProps, mapDispatchToProps)(SwitchDark)
