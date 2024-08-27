@@ -1,5 +1,3 @@
-// import { AnyAction } from 'redux'
-// import { GlobalState } from "@/redux/interface";
 import produce from 'immer'
 import * as types from '@/redux/mutation-types.js'
 
@@ -27,8 +25,18 @@ const globalState = {
 // global reducer
 const globalReducer = (state = globalState, action) =>
   produce(state, draftState => {
-    const { type, data } = action
-    console.log(action, 'action')
+    console.log(state, 'state-global')
+    // if (state.themeConfig.isDark) {
+    //   document.getElementsByClassName('login-container')[0].style.backgroundColor = '#141414'
+    //   document.getElementsByClassName('login-box')[0].style.backgroundColor = '#000c'
+    //   document.getElementsByClassName('login-form')[0].style.boxShadow = '5px 5px 15px #fff3'
+    // } else {
+    //   let style = document.getElementsByClassName('login-container')
+    //   if (style.length) {
+    //     document.getElementsByClassName('login-container')[0].style.backgroundColor = '#eee'
+    //     document.getElementsByClassName('login-box')[0].style.backgroundColor = '#fffc'
+    //   }
+    // }
     switch (action.type) {
       case types.SET_TOKEN:
         draftState.token = action.token

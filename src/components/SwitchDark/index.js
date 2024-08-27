@@ -1,20 +1,17 @@
-import { Switch, Button } from 'antd'
-import React, { useState } from 'react'
-// import { setThemeConfig } from '../../redux/modules/global/action'
-// console.log(setThemeConfig)
+import { Switch } from 'antd'
+import { connect } from 'react-redux'
+import { setThemeConfig } from '@/redux/modules/global/action'
+import React from 'react'
 
-const SwitchDark = () => {
-  const [disabled, setDisabled] = useState(false)
-  const toggle = () => {
-    // setDisabled(!disabled)
+const SwitchDark = props => {
+  const { setThemeConfig, themeConfig } = props
+  const onChange = checked => {
+    setThemeConfig({ ...themeConfig, isDark: checked })
   }
-  return (
-    <>
-      <Switch disabled={disabled} checkedChildren={<>🌞</>} unCheckedChildren={<>🌜</>} onChange={toggle}>
-        11
-      </Switch>
-    </>
-  )
+
+  return <Switch className="dark" defaultChecked={themeConfig.isDark} checkedChildren={<>🌞</>} unCheckedChildren={<>🌜</>} onChange={onChange} />
 }
 
-export default SwitchDark
+const mapStateToProps = state => state.globalReducer
+const mapDispatchToProps = { setThemeConfig }
+export default connect(mapStateToProps, mapDispatchToProps)(SwitchDark)

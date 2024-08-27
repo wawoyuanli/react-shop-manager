@@ -1,5 +1,6 @@
 /* 项目入口页 */
 import "@/styles/reset.less";
+import "@/styles/common.less";
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'

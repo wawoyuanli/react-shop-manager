@@ -3,7 +3,8 @@ import logo from '../../assets/images/logo.png'
 import loginLeft from '../../assets/images/login_left.png'
 import SwitchDark from '../../components/SwitchDark/index.js'
 import React from 'react'
-import './index.css'
+import './index.less'
+
 const Login = () => {
   return (
     <div className="login-container">

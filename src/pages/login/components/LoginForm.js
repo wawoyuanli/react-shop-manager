@@ -10,6 +10,7 @@ import { setToken } from '@/redux/modules/global/action.js'
 import { setTabsList } from '@/redux/modules/tabs/action.js'
 import md5 from 'js-md5'
 import React from 'react'
+import './index.less'
 const LoginForm = props => {
   const { t } = useTranslation()
   const { setToken, setTabsList } = props
@@ -43,10 +44,10 @@ const LoginForm = props => {
           }}
           icon={<CloseCircleOutlined />}
         >
-          {t('login.reset')}
+          注 册
         </Button>
         <Button type="primary" htmlType="submit" loading={loading} icon={<UserOutlined />}>
-          {t('login.confirm')}
+          登 录
         </Button>
       </Form.Item>
     </Form>
