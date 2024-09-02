@@ -10,7 +10,11 @@ const proTableRouter = [
     children: [
       {
         path: '/proTable/useHooks',
-        element: lazyLoad(React.lazy(() => import('@/views/proTable/useHooks/index'))),
+        element: lazyLoad(React.lazy(() => import('@/pages/proTable/useHooks/index'))),
+      },
+      {
+        path: '/proTable/useComponent',
+        element: lazyLoad(React.lazy(() => import('@/pages/proTable/useComponent/index'))),
       },
     ],
   },

@@ -48,7 +48,7 @@ const LayoutMenu = props => {
     return React.createElement(customIcons[name])
   }
 
-  // 处理后台返回菜单 key 值为 antd 菜单需要的 key 值
+  /* 处理后台返回菜单 key 值为 antd 菜单需要的 key 值*/
   const deepLoopFloat = (menuList, newArr = []) => {
     menuList.forEach(item => {
       // 下面判断代码解释 *** !item?.children?.length   ==>   (!item.children || item.children.length === 0)
