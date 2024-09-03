@@ -1,16 +1,16 @@
-import * as types from "@/redux/mutation-types";
+import { SET_TABS_LIST, SET_TABS_ACTIVE } from '@/redux/mutation-types'
 
-// * setTabsList
-export const setTabsList = (tabsList) => {
+/* setTabsList */
+export const setTabsList = tabsList => {
   return {
-    type: types.SET_TABS_LIST,
+    type: SET_TABS_LIST,
     tabsList,
   }
 }
-// * setTabsActive
-export const setTabsActive = (tabsActive) => {
+/* setTabsActive */
+export const setTabsActive = tabsActive => {
   return {
-    type: types.SET_TABS_ACTIVE,
+    type: SET_TABS_ACTIVE,
     tabsActive,
   }
 }
