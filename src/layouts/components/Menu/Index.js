@@ -17,11 +17,10 @@ const LayoutMenu = props => {
   const [selectedKeys, setSelectedKeys] = useState([pathname])
   const [openKeys, setOpenKeys] = useState([])
 
-  // 刷新页面菜单保持高亮
+  /* 刷新页面菜单保持高亮 */
   useEffect(() => {
     setSelectedKeys([pathname])
-    // eslint-disable-next-line no-unused-expressions
-    isCollapse ? null : setOpenKeys(getOpenKeys(pathname))
+    let a = isCollapse ? null : setOpenKeys(getOpenKeys(pathname))
   }, [pathname, isCollapse])
 
   // 设置当前展开的 subMenu

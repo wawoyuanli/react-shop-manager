@@ -6,15 +6,14 @@ import storage from 'redux-persist/lib/storage'
 import reduxThunk from 'redux-thunk'
 import reduxPromise from 'redux-promise'
 import globalReducer from '@/redux/modules/global/reducer.js'
-import menuReducer from './modules/menu/reducer.js'
+import menuReducer from '@/redux/modules/menu/reducer.js'
 import tabsReducer from './modules/tabs/reducer'
 import auth from './modules/auth/reducer'
 import breadcrumb from './modules/breadcrumb/reducer'
-
 // 创建reducer(拆分reducer)
-const reducer = combineReducers({
+const rootReducer = combineReducers({
+  menuReducer: menuReducer || null,
   globalReducer: globalReducer || null,
-  menuReducer,
   tabsReducer,
   auth,
   breadcrumb,
@@ -25,7 +24,7 @@ const persistConfig = {
   key: 'redux-state',
   storage: storage,
 }
-const persistReducerConfig = persistReducer(persistConfig, reducer)
+const persistReducerConfig = persistReducer(persistConfig, rootReducer)
 
 // 开启 redux-devtools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
@@ -35,7 +34,7 @@ const middleWares = applyMiddleware(reduxThunk, reduxPromise)
 
 // 创建 store
 const store = createStore(persistReducerConfig, composeEnhancers(middleWares))
-
+// const store = createStore(rootReducer)
 // 创建持久化 store
 const persistor = persistStore(store)
 

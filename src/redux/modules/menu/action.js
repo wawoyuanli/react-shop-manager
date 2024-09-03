@@ -1,20 +1,19 @@
 import * as types from '@/redux/mutation-types'
 import { getMenuList } from '@/api/modules/login'
 
-// * updateCollapse
+/* updateCollapse */
 export const updateCollapse = isCollapse => ({
   type: types.UPDATE_COLLAPSE,
   isCollapse,
 })
 
-// * setMenuList
+/* setMenuList */
 export const setMenuList = menuList => ({
   type: types.SET_MENU_LIST,
   menuList,
 })
 
-// ? 下面方法仅为测试使用，不参与任何功能开发
-// * redux-thunk
+/* 下面方法仅为测试使用，不参与任何功能开发 redux-thunk */
 export const getMenuListActionThunk = () => {
   return async dispatch => {
     const res = await getMenuList()
@@ -25,7 +24,7 @@ export const getMenuListActionThunk = () => {
   }
 }
 
-// * redux-promise《async/await》
+/* redux-promise《async/await》 */
 export const getMenuListAction = async () => {
   const res = await getMenuList()
   return {
@@ -34,7 +33,7 @@ export const getMenuListAction = async () => {
   }
 }
 
-// * redux-promise《.then/.catch》
+/* redux-promise《.then/.catch》 */
 export const getMenuListActionPromise = () => {
   return getMenuList().then(res => {
     return {

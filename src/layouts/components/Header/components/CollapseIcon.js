@@ -4,13 +4,11 @@ import { updateCollapse } from '@/redux/modules/menu/action'
 import React from 'react'
 const CollapseIcon = props => {
   const { isCollapse, updateCollapse } = props
+  const handleClick = () => {
+    updateCollapse(!isCollapse)
+  }
   return (
-    <div
-      className="collapsed"
-      onClick={() => {
-        updateCollapse(!isCollapse)
-      }}
-    >
+    <div className="collapsed" onClick={handleClick}>
       {isCollapse ? <MenuUnfoldOutlined id="isCollapse" /> : <MenuFoldOutlined id="isCollapse" />}
     </div>
   )

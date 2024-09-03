@@ -47,7 +47,6 @@ function App(props) {
   )
 }
 const mapStateToProps = state => {
-  // console.log(state.menuReducer,'state.menuReducer')
   return state.globalReducer
 }
 const mapDispatchToProps = { setLanguage }
