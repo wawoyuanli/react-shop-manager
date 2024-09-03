@@ -7,13 +7,13 @@ import reduxThunk from 'redux-thunk'
 import reduxPromise from 'redux-promise'
 import globalReducer from '@/redux/modules/global/reducer.js'
 import menuReducer from '@/redux/modules/menu/reducer.js'
-import tabsReducer from './modules/tabs/reducer'
-import auth from './modules/auth/reducer'
-import breadcrumb from './modules/breadcrumb/reducer'
+import tabsReducer from '@/redux/modules/tabs/reducer'
+import auth from '@/redux/modules/auth/reducer'
+import breadcrumb from '@/redux/modules/breadcrumb/reducer'
 // 创建reducer(拆分reducer)
 const rootReducer = combineReducers({
-  menuReducer: menuReducer || null,
-  globalReducer: globalReducer || null,
+  menuReducer,
+  globalReducer,
   tabsReducer,
   auth,
   breadcrumb,
