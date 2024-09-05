@@ -1,7 +1,7 @@
 /*
-@author:hyl
-@date:2024-09-03
- 顶部标签处理
+  @author:hyl
+  @date:2024-09-03
+  顶部标签处理
 */
 import { Tabs, message } from 'antd'
 import { HomeFilled } from '@ant-design/icons'
@@ -18,38 +18,31 @@ import React from 'react'
 const LayoutTabs = props => {
   /* 存储的菜单路径信息 */
   const { tabsList } = props.tabsReducer
-  // const { themeConfig } = props.globalReducer
   const { setTabsList } = props
-  const { pathname } = useState()
+  const { pathname } = useLocation()
   const navigate = useNavigate()
   const [activeValue, setActiveValue] = useState(pathname)
 
   /* 初始化执行 ｜ 组件更新渲染执行 使用场景：初次渲染页面时访问接口加载页面数据 */
   useEffect(() => {
     addTabs()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname])
 
   /* 点击标签 */
   const clickTabs = path => {
     navigate(path)
   }
-  const items = [
-    {
-      key: '/home/index',
-      label: '首页',
-    },
-  ]
+
   /* 添加标签 */
   const addTabs = () => {
-    console.log(routerArray, 'routerArray')
     const route = searchRoute(pathname, routerArray)
-    items.push({
-      key: route.path,
-      label: route.meta.title,
-    })
+    console.log(route, '添加标签')
+    /* 深拷贝，防止tabsList被修改 */
     let newTabsList = JSON.parse(JSON.stringify(tabsList))
+    /* array.every()返回 Boolean值，表示所有元素是否都满足条件*/
     if (tabsList.every(item => item.path !== route.path)) {
-      newTabsList.push({ title: route.meta.title, path: route.path, key: route.meta.title })
+      newTabsList.push({ label: route.meta.title, path: route.path, key: route.path })
     }
     setTabsList(newTabsList)
     setActiveValue(pathname)
@@ -57,7 +50,6 @@ const LayoutTabs = props => {
 
   /* 删除标签 */
   const delTabs = tabPath => {
-    debugger
     if (tabPath === HOME_URL) return
     if (pathname === tabPath) {
       tabsList.forEach((item, index) => {
@@ -80,8 +72,8 @@ const LayoutTabs = props => {
     <>
       <div className="tabs">
         <Tabs
-          // defaultActiveKey="/home/index"
-          items={items}
+          defaultActiveKey="/home/index"
+          items={tabsList}
           animated
           activeKey={activeValue}
           onChange={clickTabs}

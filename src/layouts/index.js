@@ -46,6 +46,7 @@ const LayoutIndex = props => {
       <Layout>
         <LayoutHeader></LayoutHeader>
         <LayoutTabs></LayoutTabs>
+        {/* 内容填充 */}
         <Content>
           <Outlet></Outlet>
         </Content>

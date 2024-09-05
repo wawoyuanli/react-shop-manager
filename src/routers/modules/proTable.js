@@ -11,10 +11,20 @@ const proTableRouter = [
       {
         path: '/proTable/useHooks',
         element: lazyLoad(React.lazy(() => import('@/pages/proTable/useHooks/index'))),
+        meta: {
+          requiresAuth: true,
+          title: '使用hooks',
+          key: 'useHooks',
+        },
       },
       {
         path: '/proTable/useComponent',
         element: lazyLoad(React.lazy(() => import('@/pages/proTable/useComponent/index'))),
+        meta: {
+          requiresAuth: true,
+          title: '使用组件',
+          key: 'useComponent',
+        },
       },
     ],
   },

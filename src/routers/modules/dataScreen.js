@@ -11,7 +11,7 @@ const dataScreenRouter = [
         element: lazyLoad(React.lazy(() => import('@/pages/dataScreen/index.js'))),
         meta: {
           requiresAuth: true,
-          title: '数据大屏11',
+          title: '数据大屏',
           key: 'dataScreen',
         },
       },
