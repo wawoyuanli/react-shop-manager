@@ -8,7 +8,6 @@ const menuState = {
 /* menu减速器 */
 const menuReducer = (state = menuState, action) =>
   produce(state, draftState => {
-    console.log(action, '----***menu***action---')
     switch (action.type) {
       case UPDATE_COLLAPSE:
         draftState.isCollapse = action.isCollapse

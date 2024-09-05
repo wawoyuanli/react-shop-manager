@@ -25,7 +25,6 @@ const globalState = {
 // global reducer
 const globalReducer = (state = globalState, action) =>
   produce(state, draftState => {
-    console.log(action, '----***globalReducer***action---')
     switch (action.type) {
       case types.SET_TOKEN:
         draftState.token = action.token
