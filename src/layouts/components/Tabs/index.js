@@ -4,7 +4,6 @@
   顶部标签处理
 */
 import { Tabs, message } from 'antd'
-import { HomeFilled } from '@ant-design/icons'
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { HOME_URL } from '@/config/config'
@@ -12,7 +11,6 @@ import { connect } from 'react-redux'
 import { setTabsList } from '@/redux/modules/tabs/action'
 import { routerArray } from '@/routers/index.js'
 import { searchRoute } from '@/utils/util'
-import MoreButton from './components/MoreButton'
 import './index.less'
 import React from 'react'
 const LayoutTabs = props => {
@@ -50,7 +48,9 @@ const LayoutTabs = props => {
 
   /* 删除标签 */
   const delTabs = tabPath => {
+    /* 若当前路径是首页 返回 不处理 */
     if (tabPath === HOME_URL) return
+    /* 当前路径等于删除的路径 */
     if (pathname === tabPath) {
       tabsList.forEach((item, index) => {
         if (item.path !== pathname) return
@@ -60,12 +60,7 @@ const LayoutTabs = props => {
       })
     }
     message.success('你删除了Tabs标签 😆😆😆')
-
     setTabsList(tabsList.filter(item => item.path !== tabPath))
-    console.log(
-      tabsList.filter(item => item.path !== tabPath),
-      'tabsList.filter(item => item.path !== tabPath)'
-    )
   }
 
   return (
