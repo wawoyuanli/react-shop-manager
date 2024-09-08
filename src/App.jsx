@@ -16,7 +16,7 @@ import React from 'react'
 import 'moment/dist/locale/zh-cn'
 function App(props) {
   console.log(props,'app-props')
-  const { language, assemblySize, setLanguage } = props
+  const { language, assemblySize } = props
   const [i18nLocale, setI18nLocale] = useState(zhCN)
   /* 全局使用主题 */
   // useTheme(themeConfig)
@@ -32,8 +32,8 @@ function App(props) {
     console.log(getBrowserLang(),'getBrowserLang()')
 		// 全局使用国际化
 		// i18n.changeLanguage(getBrowserLang());
-		setLanguage(language || getBrowserLang());
-		setAntdLanguage()
+		// setLanguage(language || getBrowserLang());
+		// setAntdLanguage()
 	}, [language])
 
   return (
