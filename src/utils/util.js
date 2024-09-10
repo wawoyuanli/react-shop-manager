@@ -77,7 +77,6 @@ export const getOpenKeys = path => {
  * @returns array
  */
 export const searchRoute = (path, routes) => {
-  console.log(routes, 'searchRoute---routes')
   let result = {}
   for (let item of routes) {
     if (item.path === path) return item

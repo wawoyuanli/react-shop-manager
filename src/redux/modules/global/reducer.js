@@ -22,7 +22,7 @@ const globalState = {
   },
 }
 
-// global reducer
+/* global-reducer 负责改变state */
 const globalReducer = (state = globalState, action) =>
   produce(state, draftState => {
     switch (action.type) {

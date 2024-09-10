@@ -10,7 +10,6 @@ const PasswordModal = props => {
   }))
 
   const showModal = params => {
-    console.log(params)
     setIsModalVisible(true)
   }
 

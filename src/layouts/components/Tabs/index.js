@@ -35,7 +35,6 @@ const LayoutTabs = props => {
   /* 添加标签 */
   const addTabs = () => {
     const route = searchRoute(pathname, routerArray)
-    console.log(route, '添加标签')
     /* 深拷贝，防止tabsList被修改 */
     let newTabsList = JSON.parse(JSON.stringify(tabsList))
     /* array.every()返回 Boolean值，表示所有元素是否都满足条件*/

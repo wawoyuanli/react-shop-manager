@@ -6,7 +6,6 @@ const CollapseIcon = props => {
   const { isCollapse, updateCollapse } = props
   const handleClick = () => {
     updateCollapse(!isCollapse)
-    console.log(isCollapse, '更改isCollapse的值')
   }
   return (
     <div className="collapsed" onClick={handleClick}>

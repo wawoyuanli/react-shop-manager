@@ -1,5 +1,12 @@
-import React from 'react'
-const dataScreen = () => {
-  return <>数据大屏</>
+import React, { useRef } from 'react'
+const DataScreen = () => {
+  const dataScreenRef = useRef(0)
+  return (
+    <div className="dataScreen-container">
+      <div className="dataScreen" ref={dataScreenRef}>
+        1
+      </div>
+    </div>
+  )
 }
-export default dataScreen
+export default DataScreen

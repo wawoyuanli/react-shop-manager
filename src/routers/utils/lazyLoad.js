@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react'
+/* 引入加载中组件 */
 import { Spin } from 'antd'
 
 /**
@@ -7,20 +8,15 @@ import { Spin } from 'antd'
  * @returns element
  */
 const lazyLoad = Comp => {
+  const styleObj = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%',
+  }
   return (
-    <Suspense
-      fallback={
-        <Spin
-          size="large"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100%',
-          }}
-        />
-      }
-    >
+    <Suspense fallback={<Spin size="large" style={styleObj} />}>
+      {/* 异步组件 */}
       <Comp />
     </Suspense>
   )

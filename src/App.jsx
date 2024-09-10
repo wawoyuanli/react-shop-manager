@@ -15,7 +15,6 @@ import { connect } from 'react-redux'
 import React from 'react'
 import 'moment/dist/locale/zh-cn'
 function App(props) {
-  console.log(props,'app-props')
   const { language, assemblySize, setLanguage } = props
   const [i18nLocale, setI18nLocale] = useState(zhCN)
   /* 全局使用主题 */
@@ -29,7 +28,6 @@ function App(props) {
     if (getBrowserLang() === 'en') return setI18nLocale(enUS)
   }
 	useEffect(() => {
-    console.log(getBrowserLang(),'getBrowserLang()')
 		// 全局使用国际化
 		// i18n.changeLanguage(getBrowserLang());
 		setLanguage(language || getBrowserLang());

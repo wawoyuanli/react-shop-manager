@@ -10,7 +10,6 @@ const InfoModal = props => {
   }))
 
   const showModal = params => {
-    console.log(params)
     setModalVisible(true)
   }
 
