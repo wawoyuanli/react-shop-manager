@@ -1,4 +1,5 @@
-import { Dropdown, Menu } from 'antd'
+import { Dropdown, Space } from 'antd'
+import { DownOutlined, SmileOutlined } from '@ant-design/icons'
 import { setAssemblySize } from '@/redux/modules/global/action'
 import { connect } from 'react-redux'
 import React from 'react'
@@ -9,35 +10,33 @@ const AssemblySize = props => {
   const onClick = e => {
     setAssemblySize(e.key)
   }
-
-  const menu = (
-    <Menu
-      items={[
-        {
-          key: 'middle',
-          disabled: assemblySize === 'middle',
-          label: <span>默认11</span>,
-          onClick,
-        },
-        {
-          disabled: assemblySize === 'large',
-          key: 'large',
-          label: <span>大型</span>,
-          onClick,
-        },
-        {
-          disabled: assemblySize === 'small',
-          key: 'small',
-          label: <span>小型</span>,
-          onClick,
-        },
-      ]}
-    />
-  )
+  const items = [
+    {
+      key: '1',
+      disabled: assemblySize === 'middle',
+      label: <span>默认</span>,
+    },
+    {
+      key: '2',
+      disabled: assemblySize === 'large',
+      label: <span>大型</span>,
+    },
+    {
+      key: '3',
+      disabled: assemblySize === 'small',
+      label: <span>小型</span>,
+    },
+  ]
   return (
-    <Dropdown menu={menu} placement="bottom" trigger={['click']} arrow={true}>
-      <i className="icon-style iconfont icon-contentright"></i>
-    </Dropdown>
+    <>
+      <Dropdown
+        menu={{
+          items,
+        }}
+      >
+        <i className="icon-style iconfont icon-contentright"></i>
+      </Dropdown>
+    </>
   )
 }
 

@@ -1,12 +1,9 @@
 /*
  柱状图
 */
-import React from 'react'
+import React, { useRef } from 'react'
 import { Layout, Divider, Card } from 'antd'
 import * as echarts from 'echarts'
-// const ColumnChart = () => {
-//   return <>columnChart</>
-// }
 class ColumnChart extends React.Component {
   constructor(props) {
     super(props)
@@ -223,14 +220,15 @@ class ColumnChart extends React.Component {
       },
     ]
     let _th = this
+    _th.initMap(ml[i].dd, ml[i].num[0], ml[i].num[1], ml[i].num[2], ml[i].num[3])
     this.timer = setInterval(() => {
       i++
       if (i === ml.length - 1) {
         // 数据读取完毕的时候将定时器去除
         // flag = false
-        clearInterval(this.timer)
+        // clearInterval(this.timer)
       }
-      _th.initMap(ml[i].dd, ml[i].num[0], ml[i].num[1], ml[i].num[2], ml[i].num[3])
+      // _th.initMap(ml[i].dd, ml[i].num[0], ml[i].num[1], ml[i].num[2], ml[i].num[3])
     }, 1000)
   }
   incrementCount() {
@@ -239,6 +237,7 @@ class ColumnChart extends React.Component {
   /* 初始化echarts */
   initMap(dd, num1, num2, num3, num4) {
     let option
+
     let myChart = echarts.init(document.getElementById('main'))
     option = {
       title: {

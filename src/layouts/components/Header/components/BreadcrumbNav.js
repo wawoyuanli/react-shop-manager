@@ -1,13 +1,13 @@
 import { Breadcrumb } from 'antd'
 import { useLocation } from 'react-router-dom'
-import { HOME_URL } from '@/config/config'
+// import { HOME_URL } from '@/config/config'
 import { connect } from 'react-redux'
-import React from 'react'
+import React, { Fragment } from 'react'
 
 const BreadcrumbNav = props => {
   const { pathname } = useLocation()
-  const { themeConfig } = props.globalReducer
-  const breadcrumbList = props.breadcrumb.breadcrumbList[pathname] || []
+  // const { themeConfig } = props.globalReducer
+  // const breadcrumbList = props.breadcrumb.breadcrumbList[pathname] || []
   const items = [
     {
       title: 'Home',
@@ -23,11 +23,10 @@ const BreadcrumbNav = props => {
     },
   ]
   return (
-    <>
-      {/* <Breadcrumb items={items}>
-       
-      </Breadcrumb> */}
-    </>
+    <Fragment>
+      {/* >=5.3.0 可用 ,推荐写法*/}
+      <Breadcrumb items={items}></Breadcrumb>
+    </Fragment>
   )
 }
 
