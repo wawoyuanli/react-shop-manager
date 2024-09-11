@@ -45,10 +45,10 @@ const LoginForm = props => {
           }}
           icon={<CloseCircleOutlined />}
         >
-          注 册
+          {t('login.reset')}
         </Button>
         <Button type="primary" htmlType="submit" loading={loading} icon={<UserOutlined />}>
-          登 录
+          {t('login.confirm')}
         </Button>
       </Form.Item>
     </Form>

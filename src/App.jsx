@@ -29,7 +29,7 @@ function App(props) {
   }
 	useEffect(() => {
 		// 全局使用国际化
-		// i18n.changeLanguage(getBrowserLang());
+		i18n.changeLanguage(getBrowserLang());
 		setLanguage(language || getBrowserLang());
 		setAntdLanguage()
 	}, [language])

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import lazyLoad from '@/routers/utils/lazyLoad'
 import { LayoutIndex } from '@/routers/constant'
 
@@ -9,7 +9,7 @@ const assemblyRouter = [
     children: [
       {
         path: '/assembly/batchImport',
-        element: lazyLoad(React.lazy(() => import('@/pages/assembly/batchImport/index.js'))),
+        element: lazyLoad(lazy(() => import('@/pages/assembly/batchImport/index.js'))),
         meta: {
           requiresAuth: true,
           title: '批量导入',
@@ -18,7 +18,7 @@ const assemblyRouter = [
       },
       {
         path: '/assembly/guide',
-        element: lazyLoad(React.lazy(() => import('@/pages/assembly/guide/index.js'))),
+        element: lazyLoad(lazy(() => import('@/pages/assembly/guide/index.js'))),
         meta: {
           requiresAuth: true,
           title: '引导页',
@@ -27,7 +27,7 @@ const assemblyRouter = [
       },
       {
         path: '/assembly/selectIcon',
-        element: lazyLoad(React.lazy(() => import('@/pages/assembly/selectIcon/index.js'))),
+        element: lazyLoad(lazy(() => import('@/pages/assembly/selectIcon/index.js'))),
         meta: {
           requiresAuth: true,
           title: '批量导入',
@@ -36,7 +36,7 @@ const assemblyRouter = [
       },
       {
         path: '/assembly/svgIcon',
-        element: lazyLoad(React.lazy(() => import('@/pages/assembly/svgIcon/index.js'))),
+        element: lazyLoad(lazy(() => import('@/pages/assembly/svgIcon/index.js'))),
         meta: {
           requiresAuth: true,
           title: 'svg选择',

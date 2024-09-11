@@ -3,6 +3,7 @@ import "@/styles/reset.less";
 import "@/styles/common.less";
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import "@/language/index";
 import App from './App.jsx'
 /* 引入提供器 */
 import { Provider } from 'react-redux'
