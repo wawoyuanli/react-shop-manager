@@ -1,5 +1,5 @@
 import { Navigate, useRoutes } from 'react-router-dom'
-import React, { lazy } from 'react'
+import React from 'react'
 
 /* 登录 */
 import Login from '../pages/login/index'

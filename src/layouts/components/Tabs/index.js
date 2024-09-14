@@ -58,7 +58,7 @@ const LayoutTabs = props => {
         navigate(nextTab.path)
       })
     }
-    message.success('你删除了Tabs标签 😆😆😆')
+    // message.success('你删除了Tabs标签 😆😆😆')
     setTabsList(tabsList.filter(item => item.path !== tabPath))
   }
 

@@ -1,16 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext, createContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { Menu, Spin } from 'antd'
 import { findAllBreadcrumb, getOpenKeys, handleRouter, searchRoute } from '@/utils/util'
 import { setMenuList } from '@/redux/modules/menu/action'
 import { setBreadcrumbList } from '@/redux/modules/breadcrumb/action'
 import { setAuthRouter } from '@/redux/modules/auth/action'
-import { getMenuList } from '@/api/modules/login'
+// import { getMenuList } from '@/api/modules/login'
 import { connect } from 'react-redux'
 import * as Icons from '@ant-design/icons'
 import Logo from './components/Logo'
+import menuUrls from './constant/index'
 import './index.less'
-
+const ThemeContext = createContext(null)
+function AA() {
+  const context = useContext(ThemeContext)
+  console.log(context, '传过来的值')
+  return <>useContext</>
+}
+function Form() {
+  const context = useContext(ThemeContext)
+  console.log(context, '传过来的值')
+  return <>form</>
+}
 const LayoutMenu = props => {
   const { pathname } = useLocation()
   const { isCollapse, setBreadcrumbList, setAuthRouter, setMenuList: setMenuListAction } = props
@@ -19,16 +30,22 @@ const LayoutMenu = props => {
 
   /* 刷新页面菜单保持高亮 */
   useEffect(() => {
+    // const connection = createConnection(serverUrl, roomId);
     setSelectedKeys([pathname])
-    let a = isCollapse ? null : setOpenKeys(getOpenKeys(pathname))
+    if (!isCollapse) {
+      setOpenKeys(getOpenKeys(pathname))
+    }
   }, [pathname, isCollapse])
 
-  // 设置当前展开的 subMenu
+  /* 设置当前展开的 subMenu */
   const onOpenChange = openKeys => {
-    if (openKeys.length === 0 || openKeys.length === 1) return setOpenKeys(openKeys)
+    if (!openKeys.length) return false
+    if (openKeys.length && openKeys.length === 1) return setOpenKeys(openKeys)
     const latestOpenKey = openKeys[openKeys.length - 1]
-    if (latestOpenKey.includes(openKeys[0])) return setOpenKeys(openKeys)
+    if (latestOpenKey.includes(openKeys[0])) return setOpenKeys(latestOpenKey)
     setOpenKeys([latestOpenKey])
+    /* 选择那个路径 那个高亮 */
+    setSelectedKeys([latestOpenKey])
   }
 
   const getItem = (label, key, icon, children, type) => {
@@ -66,15 +83,15 @@ const LayoutMenu = props => {
   const getMenuData = async () => {
     setLoading(true)
     try {
-      const { data } = await getMenuList()
-      if (!data) return
-      setMenuList(deepLoopFloat(data))
+      // const { data } = await getMenuList()
+      if (!menuUrls.length) return
+      setMenuList(deepLoopFloat(menuUrls))
       // 存储处理过后的所有面包屑导航栏到 redux 中
-      setBreadcrumbList(findAllBreadcrumb(data))
+      setBreadcrumbList(findAllBreadcrumb(menuUrls))
       // 把路由菜单处理成一维数组，存储到 redux 中，做菜单权限判断
-      const dynamicRouter = handleRouter(data)
+      const dynamicRouter = handleRouter(menuUrls)
       setAuthRouter(dynamicRouter)
-      setMenuListAction(data)
+      setMenuListAction(menuUrls)
     } finally {
       setLoading(false)
     }
@@ -85,16 +102,25 @@ const LayoutMenu = props => {
 
   /* 点击当前菜单跳转页面 */
   const navigate = useNavigate()
+  /* 点击 MenuItem 调用此函数 */
   const clickMenu = item => {
     const route = searchRoute(item.key, props.menuList)
     if (route.isLink) window.open(route.isLink, '_blank')
     navigate(item.key)
   }
-
+  const [theme, setTheme] = useState('light')
   return (
     <div className="menu">
+      <ThemeContext.Provider value={theme}>
+        <AA></AA>
+        <Form></Form>
+      </ThemeContext.Provider>
+      <ThemeContext.Provider value={{ name: 'huyuanli' }}>
+        <Form></Form>
+      </ThemeContext.Provider>
       <Spin spinning={loading} tip="Loading...">
         <Logo></Logo>
+        {/* openKeys:当前展开的 SubMenu 菜单项 key 数组 */}
         <Menu theme="dark" mode="inline" triggerSubMenuAction="click" openKeys={openKeys} selectedKeys={selectedKeys} items={menuList} onClick={clickMenu} onOpenChange={onOpenChange}></Menu>
       </Spin>
     </div>
@@ -105,4 +131,5 @@ const mapStateToProps = state => {
   return state.menuReducer
 }
 const mapDispatchToProps = { setMenuList, setBreadcrumbList, setAuthRouter }
+/* 属性，事件 */
 export default connect(mapStateToProps, mapDispatchToProps)(LayoutMenu)

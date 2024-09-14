@@ -1,10 +1,12 @@
-import React, { useRef } from 'react'
+import React, { useRef, useLayoutEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import './index.less'
 const DataScreen = () => {
-  const dataScreenRef = useRef(0)
+  let dataScreenRef = useRef(null)
   return (
     <div className="dataScreen-container">
       <div className="dataScreen" ref={dataScreenRef}>
-        1
+        11
       </div>
     </div>
   )

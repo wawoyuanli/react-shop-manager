@@ -35,7 +35,8 @@ function App(props) {
 	}, [language])
 
   return (
-    <HashRouter>
+    /* basename:所有导航的路径前缀 */
+    <HashRouter basename='/hyl'>
       <ConfigProvider locale={i18nLocale} componentSize={assemblySize}>
         <AuthRouter>
             <Router />

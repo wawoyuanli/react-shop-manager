@@ -9,11 +9,12 @@ import { ResultEnum } from '@/enums/httpEnum.js'
 import { checkStatus } from './helper/checkStatus.js'
 const axiosCanceler = new AxiosCanceler()
 const config = {
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: import.meta.env.VITE_API_URL2,
   timeout: 10000,
   /* 跨域时允许携带凭证 */
   withCredentials: true,
 }
+console.log(import.meta.env, 'import.meta.env.VITE_API_URL2')
 class RequestHttp {
   // service: AxiosInstance
   constructor(config) {
@@ -29,6 +30,7 @@ class RequestHttp {
       */
         config.headers.noLoading || showFullScreenLoading()
         const token = store.getState().globalReducer.token
+        debugger
         return { ...config, headers: { ...config.headers, 'x-access-token': token } }
       },
       error => {
