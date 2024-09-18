@@ -1,5 +1,5 @@
-// * 请求枚举配置
 /**
+ * 请求枚举配置
  * @description：请求配置
  */
 export const ResultEnum = {

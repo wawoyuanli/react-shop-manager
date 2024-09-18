@@ -6,7 +6,7 @@ import http from '@/api/index.js'
 
 /* 用户登录接口 */
 export const loginApi = params => {
-  return http.get(PORT1 + `/getData`, params)
+  return http.post(PORT1 + `/login`, params)
 }
 
 export const getAuthorButtons = () => {

@@ -16,7 +16,6 @@ const config = {
 }
 console.log(import.meta.env, 'import.meta.env.VITE_API_URL2')
 class RequestHttp {
-  // service: AxiosInstance
   constructor(config) {
     this.service = axios.create(config)
     this.service.interceptors.request.use(
@@ -25,12 +24,11 @@ class RequestHttp {
         /* 将当前请求添加到pending中 */
         axiosCanceler.addPending(config)
         /* 
-      如果当前请求不需要显示 loading ,在api服务中通过指定的第三个参数
-      {headers: { noLoading: true } } 来控制不显示loading，参见loginApi
-      */
+          如果当前请求不需要显示 loading ,在api服务中通过指定的第三个参数
+          {headers: { noLoading: true } } 来控制不显示loading，参见loginApi
+        */
         config.headers.noLoading || showFullScreenLoading()
         const token = store.getState().globalReducer.token
-        debugger
         return { ...config, headers: { ...config.headers, 'x-access-token': token } }
       },
       error => {
@@ -85,4 +83,5 @@ class RequestHttp {
     return this.service.post(url, params)
   }
 }
-export default new RequestHttp(config)
+const requestHttp = new RequestHttp(config)
+export default requestHttp

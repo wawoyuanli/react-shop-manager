@@ -1,68 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Table } from 'antd'
+import { getTableList } from '@/api/modules/table.js'
 const useHooks = () => {
   /* 表头 */
-  const columns = [
+  let columns = [
     {
       title: '姓名',
       dataIndex: 'name',
     },
     {
-      title: '语文',
-      dataIndex: 'chinese',
-      sorter: {
-        compare: (a, b) => a.chinese - b.chinese,
-        multiple: 3,
-      },
+      title: '邮箱',
+      dataIndex: 'email',
     },
     {
-      title: '数学',
-      dataIndex: 'math',
-      sorter: {
-        compare: (a, b) => a.math - b.math,
-        multiple: 2,
-      },
+      title: '地区',
+      dataIndex: 'region',
     },
     {
-      title: '英语',
-      dataIndex: 'english',
-      sorter: {
-        compare: (a, b) => a.english - b.english,
-        multiple: 1,
-      },
+      title: '内容',
+      dataIndex: 'content',
     },
   ]
   /* 数据源 */
-  const data = [
-    {
-      key: '1',
-      name: 'John Brown',
-      chinese: 98,
-      math: 60,
-      english: 70,
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      chinese: 98,
-      math: 66,
-      english: 89,
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      chinese: 98,
-      math: 90,
-      english: 70,
-    },
-    {
-      key: '4',
-      name: 'Jim Red',
-      chinese: 88,
-      math: 99,
-      english: 89,
-    },
-  ]
+  const [tableData, setTabledata] = useState()
+  useEffect(() => {
+    const getTableData = async () => {
+      const { data } = await getTableList()
+      setTabledata(data.list)
+    }
+    getTableData()
+  }, [])
+  /* 改变 */
   const onChange = (pagination, filters, sorter, extra) => {
     console.log('params', pagination, filters, sorter, extra)
   }
@@ -73,11 +41,12 @@ const useHooks = () => {
         size="middle"
         scroll={{
           x: 'calc(700px + 50%)',
-          y: 240,
         }}
         columns={columns}
-        dataSource={data}
+        dataSource={tableData}
         onChange={onChange}
+        rowKey="key"
+        pagination={{ pageSize: 10 }}
       />
     </>
   )

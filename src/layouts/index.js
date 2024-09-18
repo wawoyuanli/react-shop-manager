@@ -15,13 +15,13 @@ const LayoutIndex = props => {
   const { Sider, Content } = Layout
   const { isCollapse, updateCollapse, setAuthButtons } = props
 
-  // 获取按钮权限列表
+  /* 获取按钮权限列表 */
   const getAuthButtonsList = async () => {
     const { data } = await getAuthorButtons()
     setAuthButtons(data)
   }
 
-  // 监听窗口大小变化
+  /* 监听窗口大小变化 */
   const listeningWindow = () => {
     window.onresize = () => {
       return (() => {

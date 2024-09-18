@@ -6,7 +6,7 @@ const authState = {
   authRouter: [],
 }
 
-// auth reducer
+/* auth reducer */
 const auth = (state = authState, action) =>
   produce(state, draftState => {
     switch (action.type) {
