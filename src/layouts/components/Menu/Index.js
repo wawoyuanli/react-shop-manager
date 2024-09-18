@@ -12,14 +12,6 @@ import Logo from './components/Logo'
 import menuUrls from './constant/index'
 import './index.less'
 const ThemeContext = createContext(null)
-function AA() {
-  const context = useContext(ThemeContext)
-  return <>useContext</>
-}
-function Form() {
-  const context = useContext(ThemeContext)
-  return <>form</>
-}
 const LayoutMenu = props => {
   const { pathname } = useLocation()
   const { isCollapse, setBreadcrumbList, setAuthRouter, setMenuList: setMenuListAction } = props
@@ -103,19 +95,14 @@ const LayoutMenu = props => {
   /* 点击 MenuItem 调用此函数 */
   const clickMenu = item => {
     const route = searchRoute(item.key, props.menuList)
-    if (route.isLink) window.open(route.isLink, '_blank')
+    if (route.isLink) {
+      window.open(route.isLink, '_blank')
+      return
+    }
     navigate(item.key)
   }
-  const [theme, setTheme] = useState('light')
   return (
     <div className="menu">
-      <ThemeContext.Provider value={theme}>
-        <AA></AA>
-        <Form></Form>
-      </ThemeContext.Provider>
-      <ThemeContext.Provider value={{ name: 'huyuanli' }}>
-        <Form></Form>
-      </ThemeContext.Provider>
       <Spin spinning={loading} tip="Loading...">
         <Logo></Logo>
         {/* openKeys:当前展开的 SubMenu 菜单项 key 数组 */}
