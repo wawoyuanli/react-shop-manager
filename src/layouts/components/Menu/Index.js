@@ -14,12 +14,10 @@ import './index.less'
 const ThemeContext = createContext(null)
 function AA() {
   const context = useContext(ThemeContext)
-  console.log(context, '传过来的值')
   return <>useContext</>
 }
 function Form() {
   const context = useContext(ThemeContext)
-  console.log(context, '传过来的值')
   return <>form</>
 }
 const LayoutMenu = props => {

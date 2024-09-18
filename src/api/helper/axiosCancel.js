@@ -11,8 +11,8 @@ export const getPendingUrl = config => {
 export class AxiosCanceler {
   /* 添加请求 */
   addPending(config) {
-    /* 在请求开始前，对之前的请求做检查取消操作 */
-    this.removePending(config)
+    /* 在请求开始前，对之前的请求做检查取消操作 @TODO */
+    // this.removePending(config)
     const url = getPendingUrl(config)
     config.cancelToken =
       config.cancelToken ||

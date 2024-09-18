@@ -1,9 +1,10 @@
+/* 请求loading组件 */
 import ReactDOM from 'react-dom/client'
 import Loading from '@/components/Loading.js'
 import React from 'react'
 let needLoadingRequestCount = 0
 
-// * 显示loading
+/* 显示loading */
 export const showFullScreenLoading = () => {
   if (needLoadingRequestCount === 0) {
     let dom = document.createElement('div')
@@ -14,7 +15,7 @@ export const showFullScreenLoading = () => {
   needLoadingRequestCount++
 }
 
-// * 隐藏loading
+/* 隐藏loading */
 export const tryHideFullScreenLoading = () => {
   if (needLoadingRequestCount <= 0) return
   needLoadingRequestCount--

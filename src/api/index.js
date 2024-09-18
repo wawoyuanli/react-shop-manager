@@ -1,25 +1,39 @@
+/*
+ http请求封装
+*/
+/* 引入页面加载进度条 */
 import NProgress from '@/config/nprogress.js'
+/* 引入axios */
 import axios from 'axios'
+/* 引入取消请求的组件 */
 import { AxiosCanceler } from '@/api/helper/axiosCancel'
+/* 引入请求loading */
 import { showFullScreenLoading, tryHideFullScreenLoading } from '@/config/serviceLoading'
+/* 引入store */
 import { store } from '@/redux/index.js'
+/* 引入token  action */
 import { setToken } from '@/redux/modules/global/action.js'
+/* 引入信息框 */
 import { message } from 'antd'
 import { ResultEnum } from '@/enums/httpEnum.js'
+/* 引入接口请求状态判断 */
 import { checkStatus } from './helper/checkStatus.js'
+/* 实例化AxiosCanceler */
 const axiosCanceler = new AxiosCanceler()
 const config = {
+  /* 接口域名路径 */
   baseURL: import.meta.env.VITE_API_URL2,
+  /* 超时时间 */
   timeout: 10000,
   /* 跨域时允许携带凭证 */
   withCredentials: true,
 }
-console.log(import.meta.env, 'import.meta.env.VITE_API_URL2')
 class RequestHttp {
   constructor(config) {
     this.service = axios.create(config)
     this.service.interceptors.request.use(
       config => {
+        /* 动画 */
         NProgress.start()
         /* 将当前请求添加到pending中 */
         axiosCanceler.addPending(config)
@@ -46,19 +60,19 @@ class RequestHttp {
         // * 在请求结束后，移除本次请求(关闭loading)
         axiosCanceler.removePending(config)
         tryHideFullScreenLoading()
-        // * 登录失效（code == 599）
+        /* 登录失效（code == 599） */
         if (data.code === ResultEnum.OVERDUE) {
           store.dispatch(setToken(''))
           message.error(data.msg)
           window.location.hash = '/login'
           return Promise.reject(data)
         }
-        // * 全局错误信息拦截（防止下载文件得时候返回数据流，没有code，直接报错）
+        /* 全局错误信息拦截（防止下载文件得时候返回数据流，没有code，直接报错） */
         if (data.code && data.code !== ResultEnum.SUCCESS) {
           message.error(data.msg)
           return Promise.reject(data)
         }
-        // * 成功请求（在页面上除非特殊情况，否则不用处理失败逻辑）
+        /* 成功请求（在页面上除非特殊情况，否则不用处理失败逻辑） */
         return data
       },
       async error => {

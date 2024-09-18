@@ -19,6 +19,7 @@ const useHooks = () => {
     {
       title: '内容',
       dataIndex: 'content',
+      fixed: 'right',
     },
   ]
   /* 数据源 */

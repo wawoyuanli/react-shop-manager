@@ -62,7 +62,6 @@ const WaterMark = config => {
     allContentHtml += contentHtml
   }
   markModalDom.innerHTML = allContentHtml
-  console.log(markModalDom, 'markModalDom')
   document.body.appendChild(markModalDom)
 }
 
