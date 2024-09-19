@@ -1,6 +1,5 @@
 import { useEcharts } from '@/hooks/useEcharts'
-import { EChartsOption } from 'echarts'
-
+import React from 'react'
 const AgeRatioChart = () => {
   let data = [
     {
@@ -75,7 +74,6 @@ const AgeRatioChart = () => {
         radius: [50, 90],
         center: ['35%', '50%'],
         startAngle: 60,
-        // hoverAnimation: false,
         label: {
           position: 'inside',
           show: true,
