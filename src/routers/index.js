@@ -2,7 +2,8 @@ import { Navigate, useRoutes } from 'react-router-dom'
 import React from 'react'
 
 /* 登录 */
-import Login from '../pages/login/index'
+// import Login from '../pages/login/index'
+import LoginNew from '../pages/loginNew/index'
 /* 配置路由映射 （不同的路由对应渲染不同的页面组件） */
 
 /* 导入所有router */
@@ -18,11 +19,11 @@ Object.keys(metaRouters).forEach(item => {
 const rootRouter = [
   {
     path: '/',
-    element: <Navigate to="/menu/menu1" />,
+    element: <LoginNew />,
   },
   {
     path: '/login',
-    element: <Login />,
+    element: <LoginNew />,
     meta: {
       requiresAuth: false,
       title: '登录页',
