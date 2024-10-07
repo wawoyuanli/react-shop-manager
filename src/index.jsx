@@ -11,7 +11,7 @@ import { Provider } from 'react-redux'
 /* 引入store*/
 import { store, persistor } from './redux/index.js'
 import { PersistGate } from 'redux-persist/integration/react'
-import WaterMark from './components/WaterMark/index.js';
+// import WaterMark from './components/WaterMark/index.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
@@ -20,7 +20,7 @@ root.render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
       <StrictMode>
-        <WaterMark></WaterMark>
+        {/* <WaterMark></WaterMark> */}
         <App />
       </StrictMode>
     </PersistGate>

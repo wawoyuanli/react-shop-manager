@@ -1,6 +1,6 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import React from "react";
-
+import aa from "./modules/app.js";
 /* 登录 */
 import LoginNew from "../pages/loginNew/index.js";
 /* 配置路由映射 （不同的路由对应渲染不同的页面组件） */
@@ -30,6 +30,7 @@ const rootRouter = [
     },
   },
   ...routerArray,
+  ...aa,
   {
     path: "*",
     element: <Navigate to="/404" />,
