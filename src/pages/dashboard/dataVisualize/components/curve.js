@@ -1,6 +1,5 @@
-import React from 'react'
-import { useEcharts } from '@/hooks/useEcharts'
+import React from "react";
 const Curve = () => {
-  return <>useEcharts</>
-}
-export default Curve
+  return <>useEcharts</>;
+};
+export default Curve;

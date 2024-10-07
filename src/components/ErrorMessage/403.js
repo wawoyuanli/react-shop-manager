@@ -1,14 +1,14 @@
-import { Button, Result } from 'antd'
-import { useNavigate } from 'react-router-dom'
-import { HOME_URL } from '@/config/config'
-import './index.less'
-import React from 'react'
+import { Button, Result } from "antd";
+import { useNavigate } from "react-router-dom";
+import { HOME_URL } from "../../config/config";
+import "./index.less";
+import React from "react";
 
 const NotFound = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const goHome = () => {
-    navigate(HOME_URL)
-  }
+    navigate(HOME_URL);
+  };
   return (
     <Result
       status="404"
@@ -20,7 +20,7 @@ const NotFound = () => {
         </Button>
       }
     />
-  )
-}
+  );
+};
 
-export default NotFound
+export default NotFound;

@@ -1,13 +1,13 @@
-import { SET_AUTH_BUTTONS, SET_AUTH_ROUTER } from '@/redux/mutation-types'
+import { SET_AUTH_BUTTONS, SET_AUTH_ROUTER } from "../../mutation-types.js";
 
 // * setAuthButtons
-export const setAuthButtons = authButtons => ({
+export const setAuthButtons = (authButtons) => ({
   type: SET_AUTH_BUTTONS,
   authButtons,
-})
+});
 
 // * setAuthRouter
-export const setAuthRouter = authRouter => ({
+export const setAuthRouter = (authRouter) => ({
   type: SET_AUTH_ROUTER,
   authRouter,
-})
+});

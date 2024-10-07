@@ -1,7 +1,7 @@
 /* 顶级react组件 */
-import { getBrowserLang } from '@/utils/util.js'
+import { getBrowserLang } from './utils/util.js'
 import { HashRouter } from 'react-router-dom'
-import AuthRouter from "@/routers/utils/authRouter";
+import AuthRouter from "./routers/utils/authRouter";
 import Router from './routers/index.js'
 import { ConfigProvider } from 'antd'
 import { setLanguage } from './redux/modules/global/action.js'

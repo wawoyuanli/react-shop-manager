@@ -1,10 +1,10 @@
 /* 项目入口页 */
-import "@/styles/reset.less";
-import "@/styles/common.less";
+import "./styles/reset.less";
+import "./styles/common.less";
 /* StrictMode可让你在开发过程中及早发现组件中的常见错误 */
 import React ,{StrictMode}from 'react'
 import ReactDOM from 'react-dom/client'
-import "@/language/index";
+import "./language/index";
 import App from './App.jsx'
 /* 引入提供器 */
 import { Provider } from 'react-redux'
