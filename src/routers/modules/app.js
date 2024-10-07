@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import lazyLoad from "../../routers/utils/lazyLoad.js";
+import React from "react";
 
 /* 常用组件模块 */
 const appRouter = [

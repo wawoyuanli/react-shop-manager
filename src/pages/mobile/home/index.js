@@ -6,7 +6,7 @@ import apple2 from "../../../assets/images/apple2.jpg";
 import apple3 from "../../../assets/images/apple3.jpg";
 import apple4 from "../../../assets/images/apple4.jpg";
 import apple5 from "../../../assets/images/apple5.jpg";
-import "./index.less";
+import "./index.css";
 const AppHome = () => {
   const onChange = (currentSlide) => {
     console.log(currentSlide);

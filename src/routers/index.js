@@ -1,8 +1,11 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import React from "react";
-import aa from "./modules/app.js";
+// import aa from "./modules/app.js";
 /* 登录 */
 import LoginNew from "../pages/loginNew/index.js";
+import AppHome from "../pages/mobile/home/index.js";
+import ContactUs from "../pages/mobile/contactUs/index.js";
+import AppDetail from "../pages/mobile/detail/index.js";
 /* 配置路由映射 （不同的路由对应渲染不同的页面组件） */
 
 /* 导入所有router */
@@ -17,6 +20,18 @@ const routerArray = [];
 
 const rootRouter = [
   {
+    path: "/app/home",
+    element: <AppHome />,
+  },
+  {
+    path: "/app/contractUs",
+    element: <ContactUs />,
+  },
+  {
+    path: "/app/apple/detail",
+    element: <AppDetail />,
+  },
+  {
     path: "/",
     element: <LoginNew />,
   },
@@ -30,7 +45,7 @@ const rootRouter = [
     },
   },
   ...routerArray,
-  ...aa,
+  // ...aa,
   {
     path: "*",
     element: <Navigate to="/404" />,
