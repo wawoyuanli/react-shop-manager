@@ -1,27 +1,27 @@
-import React from "react";
-import { Carousel } from "antd";
-import { useNavigate } from "react-router-dom";
-import apple1 from "../../../assets/images/apple1.jpg";
-import apple2 from "../../../assets/images/apple2.jpg";
-import apple3 from "../../../assets/images/apple3.jpg";
-import apple4 from "../../../assets/images/apple4.jpg";
-import apple5 from "../../../assets/images/apple5.jpg";
-import "./index.css";
+import React from 'react'
+import { Carousel } from 'antd'
+import { useNavigate } from 'react-router-dom'
+import apple1 from '@/assets/images/apple1.jpg'
+import apple2 from '@/assets/images/apple2.jpg'
+import apple3 from '@/assets/images/apple3.jpg'
+import apple4 from '@/assets/images/apple4.jpg'
+import apple5 from '@/assets/images/apple5.jpg'
+import './index.css'
 const AppHome = () => {
-  const onChange = (currentSlide) => {
-    console.log(currentSlide);
-  };
-  const navigate = useNavigate();
+  const onChange = currentSlide => {
+    console.log(currentSlide)
+  }
+  const navigate = useNavigate()
 
   const nextPage = () => {
-    navigate("/app/contractUs");
-  };
+    navigate('/app/contractUs')
+  }
   const seeDetail = () => {
-    navigate("/app/apple/detail");
-  };
+    navigate('/app/apple/detail')
+  }
   return (
     <div className="app-home">
-      <Carousel afterChange={onChange} style={{ width: "100vw" }}>
+      <Carousel afterChange={onChange} style={{ width: '100vw' }}>
         <div className="apple-image">
           <img src={apple1} alt="apple1" />
         </div>
@@ -71,6 +71,6 @@ const AppHome = () => {
         </div>
       </div>
     </div>
-  );
-};
-export default AppHome;
+  )
+}
+export default AppHome

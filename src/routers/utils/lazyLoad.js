@@ -21,10 +21,12 @@ const lazyLoad = Comp => {
       当惰性组件的代码仍在加载时，尝试渲染它将会挂起。
       使用 <Suspense> 在加载时显示加载指示器。
     */
-    <Suspense fallback={<Spin size="large" style={styleObj} />}>
-      {/* 异步组件 */}
-      <Comp />
-    </Suspense>
+    <>
+      <Suspense fallback={<Spin size="large" style={styleObj} />}>
+        {/* 异步组件 */}
+        <Comp />
+      </Suspense>
+    </>
   )
 }
 
