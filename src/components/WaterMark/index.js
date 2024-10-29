@@ -7,7 +7,7 @@
 import './index.less'
 const WaterMark = config => {
   const defaultConfig = {
-    content: `胡元丽` + new Date().getFullYear() + (new Date().getMonth() + 1) + new Date().getDate(),
+    content: `ADMIN` + new Date().getFullYear() + (new Date().getMonth() + 1) + new Date().getDate(),
     fontSize: '20px',
     opacity: 0.3,
     rotate: '-25',

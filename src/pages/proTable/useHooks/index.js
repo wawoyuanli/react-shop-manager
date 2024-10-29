@@ -35,11 +35,23 @@ const useHooks = () => {
   const onChange = (pagination, filters, sorter, extra) => {
     console.log('params', pagination, filters, sorter, extra)
   }
+  const rowSelection = {
+    onSelect: row => {
+      console.log('onSelect', row)
+    },
+    /* 选中所有 */
+    onSelectAll: isAll => {
+      console.log('onSelectAll', isAll)
+    },
+    checkStrictly: row => {
+      console.log('checkStrictly', row)
+    },
+  }
   return (
     <>
       <Table
         bordered
-        size="middle"
+        size="small"
         scroll={{
           x: 'calc(700px + 50%)',
         }}
@@ -48,6 +60,7 @@ const useHooks = () => {
         onChange={onChange}
         rowKey="key"
         pagination={{ pageSize: 10 }}
+        rowSelection={{ ...rowSelection }}
       />
     </>
   )

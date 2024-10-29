@@ -9,16 +9,18 @@ import i18n from 'i18next'
 import zhCN from 'antd/lib/locale/zh_CN'
 import enUS from 'antd/lib/locale/en_US'
 import { useState, useEffect } from 'react'
+import { setThemeConfig } from "./redux/modules/global/action";
 /* 引入连接器 */
 import { connect } from 'react-redux'
-// import useTheme from './hooks/useTheme.js'
+import useTheme from './hooks/useTheme.js'
 import React from 'react'
-import 'moment/dist/locale/zh-cn'
+// import 'moment/dist/locale/zh-cn'
 function App(props) {
-  const { language, assemblySize, setLanguage } = props
+  const { language, assemblySize, setLanguage,themeConfig} = props
+  setThemeConfig({ ...themeConfig});
   const [i18nLocale, setI18nLocale] = useState(zhCN)
-  /* 全局使用主题 */
-  // useTheme(themeConfig)
+  /* 全局使用主题 更改皮肤*/
+  useTheme(themeConfig)
   /* 设置antd语言国际化 */
   const setAntdLanguage = () => {
     /* 如果 redux 中有默认语言就设置成 redux 的默认语言，没有默认语言就设置成浏览器默认语言 */
@@ -32,7 +34,7 @@ function App(props) {
 		i18n.changeLanguage(getBrowserLang());
 		setLanguage(language || getBrowserLang());
 		setAntdLanguage()
-	}, [language])
+	})
 
   return (
     /* basename:所有导航的路径前缀 */

@@ -5,3 +5,7 @@
 ### mock 数据规则
 
 - https://blog.csdn.net/Fisher_yu01/article/details/86612269
+
+### UI 网站
+
+- https://www.ui.cn/detail/666992.html
